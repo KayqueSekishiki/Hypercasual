@@ -4,32 +4,6 @@ using UnityEngine;
 
 public class TouchController : MonoBehaviour
 {
-    //public Vector2 pastPosition;
-    //public float velocity = 1f;
-
-    //void Start()
-    //{
-
-    //}
-
-    //void Update()
-    //{
-    //    if (Input.GetMouseButton(0))
-    //    {
-    //        Move(Input.mousePosition.x - pastPosition.x);
-    //    }
-    //    pastPosition = Input.mousePosition;
-    //}
-
-    //public void Move(float speed)
-    //{
-    //    transform.position += Time.deltaTime * speed * velocity * Vector3.right;
-    //}
-
-
-
-
-
     private Vector2 _fingerDown;
     private Vector2 _fingerUp;
 
@@ -54,9 +28,21 @@ public class TouchController : MonoBehaviour
                 CheckSwipe();
             }
         }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            _fingerUp = Input.mousePosition;
+
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            _fingerDown = Input.mousePosition;
+            CheckSwipe();
+        }
     }
-    
-    
+
+
     void CheckSwipe()
     {
         if (VerticalMove() > swipeSensitivity && VerticalMove() > HorizontalValMove())
