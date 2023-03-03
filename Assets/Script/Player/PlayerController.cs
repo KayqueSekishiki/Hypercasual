@@ -11,21 +11,23 @@ public class PlayerController : MonoBehaviour
 
     public float speed = 1f;
 
+    public GameObject endScreen;
+
     //privates
     private bool _canRun;
     private Vector3 _pos;
 
 
-    private void Start()
-    {
-        _canRun = true;
-    }
+    //private void Start()
+    //{
+    //    _canRun = true;
+    //}
 
     void Update()
     {
         if (!_canRun) return;
         _pos = target.position;
-        _pos.y = transform.position.y;
+        _pos.y = target.position.y;
         _pos.z = transform.position.z;
 
 
@@ -37,8 +39,28 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.transform.CompareTag("Enemy"))
         {
-            _canRun = false;
+            EndGame();
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.CompareTag("Endline"))
+        {
+            EndGame();
+        }
+    }
+
+
+    private void EndGame()
+    {
+        _canRun = false;
+        endScreen.SetActive(true);
+    }
+
+    public void StartToRun()
+    {
+        _canRun = true;
     }
 }
 
