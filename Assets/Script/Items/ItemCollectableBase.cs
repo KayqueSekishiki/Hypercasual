@@ -28,7 +28,6 @@ public class ItemCollectableBase : MonoBehaviour
 
     }
 
-
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.transform.CompareTag(compateTag))
@@ -46,6 +45,6 @@ public class ItemCollectableBase : MonoBehaviour
     protected virtual void OnCollect()
     {
         if (myParticleSystem != null) myParticleSystem.Play();
-      //  if (audioSource != null) audioRandomPlayAudioClips.PlayRandom();
+        //  if (audioSource != null) audioRandomPlayAudioClips.PlayRandom();
     }
 }
