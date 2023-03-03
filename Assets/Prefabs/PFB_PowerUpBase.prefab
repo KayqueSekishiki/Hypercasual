@@ -125,7 +125,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2266181729616332564}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 1
@@ -148,3 +148,4 @@ MonoBehaviour:
   parentVFX: {fileID: 0}
   parentSFX: {fileID: 0}
   audioSource: {fileID: 0}
+  duration: 1

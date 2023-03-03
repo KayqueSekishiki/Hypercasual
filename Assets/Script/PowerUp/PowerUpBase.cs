@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class PowerUpBase : ItemCollectableBase
 {
-    // Start is called before the first frame update
-    void Start()
+    [Header("PowerUp")]
+    public float duration;
+
+    protected override void OnCollect()
     {
-        
+        base.OnCollect();
+        StartPowerUp();
     }
 
-    // Update is called once per frame
-    void Update()
+    protected virtual void StartPowerUp()
     {
-        
+        Debug.Log("Start PowerUp");
+
+        Invoke(nameof(EndPowerUp), duration);
+    }
+
+    protected virtual void EndPowerUp()
+    {
+        Debug.Log("End PowerUp");
+
     }
 }
