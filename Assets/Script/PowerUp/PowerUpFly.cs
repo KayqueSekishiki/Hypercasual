@@ -2,21 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerUpSpeedUp : PowerUpBase
+public class PowerUpFly : PowerUpBase
 {
-
-    [Header("PowerUp SpeedUp")]
-    public float amountToSpeed;
+    [Header("PowerUp Fly")]
+    public float amountToHeight;
 
     protected override void StartPowerUp()
     {
         base.StartPowerUp();
-        PlayerController.Instance.PowerUpSpeedUp(statusName, amountToSpeed);
+        PlayerController.Instance.PowerUpFly(statusName, amountToHeight);
     }
 
     protected override void EndPowerUp()
     {
         base.EndPowerUp();
-        PlayerController.Instance.PowerUpSpeedUpEnd();  
+        PlayerController.Instance.PowerUpFlyEnd(amountToHeight);
     }
 }

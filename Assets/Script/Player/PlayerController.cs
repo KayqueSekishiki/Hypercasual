@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using Ebac.Core.Singleton;
 
 public class PlayerController : Singleton<PlayerController>
@@ -12,6 +13,7 @@ public class PlayerController : Singleton<PlayerController>
 
 
     [Header("Player")]
+    public TextMeshProUGUI playerStatus;
     public float initialSpeed = 1f;
 
     public GameObject endScreen;
@@ -20,11 +22,15 @@ public class PlayerController : Singleton<PlayerController>
     private bool _canRun;
     private Vector3 _pos;
     private float _currentSpeed;
+    private bool _invincible;
+    private bool _fly;
+
 
 
     private void Start()
     {
         _currentSpeed = initialSpeed;
+        ResetStatusName();
     }
 
 
@@ -42,10 +48,16 @@ public class PlayerController : Singleton<PlayerController>
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.CompareTag("Enemy"))
+        if (collision.transform.CompareTag("Enemy") && _invincible)
+        {
+            Destroy(collision.gameObject);
+        }
+        else if (collision.transform.CompareTag("Enemy") && !_invincible)
         {
             EndGame();
         }
+
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -70,14 +82,52 @@ public class PlayerController : Singleton<PlayerController>
 
     #region POWERUPS
 
-    public void PowerUpSpeedUp(float addSpeed)
+    public void PowerUpSpeedUp(string statusName, float addSpeed)
     {
+        playerStatus.text = statusName;
         _currentSpeed += addSpeed;
     }
 
     public void PowerUpSpeedUpEnd()
     {
+        ResetStatusName();
         _currentSpeed = initialSpeed;
+    }
+
+    public void PowerUpInvincible(string statusName)
+    {
+        playerStatus.text = statusName;
+        _invincible = true;
+    }
+
+    public void PowerUpInvincibleEnd()
+    {
+        ResetStatusName();
+        _invincible = false;
+    }
+
+    public void PowerUpFly(string statusName, float amount)
+    {
+
+        playerStatus.text = statusName;
+        _fly = true;
+        var pos = target.position;
+        target.position = new Vector3(target.position.x, pos.y += amount, target.position.z);
+
+
+    }
+
+    public void PowerUpFlyEnd(float amount)
+    {
+        ResetStatusName();
+        _fly = false;
+        var pos = target.position;
+        target.position = new Vector3(target.position.x, pos.y -= amount, target.position.z);
+    }
+
+    public void ResetStatusName()
+    {
+        playerStatus.text = "";
     }
 
 

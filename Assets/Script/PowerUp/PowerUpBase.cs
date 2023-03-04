@@ -5,6 +5,7 @@ using UnityEngine;
 public class PowerUpBase : ItemCollectableBase
 {
     [Header("PowerUp")]
+    public string statusName;
     public float duration;
 
     protected override void OnCollect()
