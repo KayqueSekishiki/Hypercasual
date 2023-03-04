@@ -18,13 +18,13 @@ public class PlayerController : Singleton<PlayerController>
 
     public GameObject endScreen;
 
+    public GameObject coinCollector;
+
     //privates
     private bool _canRun;
     private Vector3 _pos;
     private float _currentSpeed;
     private bool _invincible;
-    private bool _fly;
-
 
 
     private void Start()
@@ -56,8 +56,6 @@ public class PlayerController : Singleton<PlayerController>
         {
             EndGame();
         }
-
-
     }
 
     private void OnTriggerEnter(Collider other)
@@ -108,28 +106,35 @@ public class PlayerController : Singleton<PlayerController>
 
     public void PowerUpFly(string statusName, float amount)
     {
-
         playerStatus.text = statusName;
-        _fly = true;
         var pos = target.position;
         target.position = new Vector3(target.position.x, pos.y += amount, target.position.z);
-
-
     }
 
     public void PowerUpFlyEnd(float amount)
     {
         ResetStatusName();
-        _fly = false;
         var pos = target.position;
         target.position = new Vector3(target.position.x, pos.y -= amount, target.position.z);
+    }
+
+    public void PowerUpGetCoins(string statusName, float amount)
+    {
+        playerStatus.text = statusName;
+        coinCollector.transform.localScale = Vector3.one * amount;
+
+    }
+
+    public void PowerUpGetCoinsEnd()
+    {
+        ResetStatusName();
+        coinCollector.transform.localScale = Vector3.one;
     }
 
     public void ResetStatusName()
     {
         playerStatus.text = "";
     }
-
 
 
 
