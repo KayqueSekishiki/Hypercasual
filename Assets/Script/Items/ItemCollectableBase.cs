@@ -34,7 +34,7 @@ public class ItemCollectableBase : MonoBehaviour
         }
     }
 
-      protected virtual void Collect()
+    protected virtual void Collect()
     {
         HideItems();
         OnCollect();

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerUpGetCoins : PowerUpBase
+public class PowerUpMagnet : PowerUpBase
 {
     [Header("PowerUp GetCoins")]
     public float sizeAmount = 10f;

@@ -27,14 +27,18 @@ public class ItemCollectableCoin : ItemCollectableBase
     {
         if (collect)
         {
-            transform.position = Vector3.Lerp(transform.position, PlayerController.Instance.transform.position, lerpTime);
-
+            transform.position = Vector3.Lerp(transform.position, PlayerController.Instance.transform.position, lerpTime * Time.deltaTime);
             if (Vector3.Distance(transform.position, PlayerController.Instance.transform.position) < minDistance)
             {
                 HideItems();
-               // Destroy(gameObject);
+                Invoke(nameof(AutoDestroy), 5f);
             }
         }
+    }
+
+    private void AutoDestroy()
+    {
+        Destroy(gameObject);
     }
 
 

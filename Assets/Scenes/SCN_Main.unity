@@ -4870,6 +4870,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_PowerUp_Magnet
       objectReference: {fileID: 0}
+    - target: {fileID: 2294749716874855820, guid: 6f8eb0404edd0a94aa05fe39e7738c8f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f8eb0404edd0a94aa05fe39e7738c8f, type: 3}
 --- !u!4 &1286048985790976342 stripped
