@@ -86,7 +86,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
+    m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -225,9 +225,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: aab70000
-      m_LastClickedID: 47018
-      m_ExpandedIDs: a255feffae73fefffa40ffff4841ffff4a42ffffc843ffff1844ffff1a45ffff4648ffff9648ffff9849ffff984bffffe64bffff904effff5e6dffffe8cbffff0afbffffee5f00000260000020600000706000009e600000b66000003cb70000aab70000c0b70000f2b70000c6b8000018b9000024b900000a680100da690100
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 4a21feffa255feffae73fefffa40ffff4841ffff4a42ffffc843ffff1844ffff1a45ffff4648ffff9648ffff9849ffff984bffffe64bffff904effff5e6dffffe8cbffff0afbffffee5f00000260000020600000706000009e600000b66000003cb70000aab70000c0b70000f2b70000c6b8000018b9000024b900000a680100da690100e6970100009a0100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -270,8 +270,8 @@ MonoBehaviour:
     y: 0
     width: 887
     height: 556
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 8}
   m_Panes:
   - {fileID: 8}
@@ -557,9 +557,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.73682404, y: -16.637592, z: 31.940235}
+    m_Target: {x: 0.45353788, y: -0.45053458, z: -0.22304939}
     speed: 2
-    m_Value: {x: -0.73682404, y: -16.637592, z: 31.940235}
+    m_Value: {x: 0.45353788, y: -0.45053458, z: -0.22304939}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -606,13 +606,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.2598055, y: -0.018899936, z: 0.0048880395, w: 0.9656969}
+    m_Target: {x: 0.26981366, y: 0.033162493, z: -0.009451223, w: 0.96252984}
     speed: 2
-    m_Value: {x: 0.259747, y: -0.018895682, z: 0.004886939, w: 0.96547943}
+    m_Value: {x: 0.2683089, y: 0.03316915, z: -0.009399299, w: 0.96271586}
   m_Size:
-    m_Target: 17.257303
+    m_Target: 0.8660254
     speed: 2
-    m_Value: 17.257303
+    m_Value: 0.8137505
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -687,7 +687,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 39582
+  controlID: 40198
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -755,21 +755,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets/Script/Items
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/Script/Items
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\Kaique2\Desktop\Projetos de Jogos\EBAC\Hypercasual
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 7a610000
-    m_LastClickedID: 24954
+    m_SelectedIDs: 80610000
+    m_LastClickedID: 24960
     m_ExpandedIDs: 00000000686100006a6100006c6100006e61000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -823,9 +823,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: aab70000
-    m_LastClickedInstanceID: 47018
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000ec6100001e6e0000f0610000
     m_RenameOverlay:
       m_UserAcceptedRename: 0

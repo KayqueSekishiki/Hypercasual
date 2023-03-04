@@ -4,17 +4,38 @@ using UnityEngine;
 
 public class ItemCollectableCoin : ItemCollectableBase
 {
-    //public Collider collider;
+    [Header("Coin")]
+    public Collider myCollider;
+    public bool collect = false;
+    public float lerpTime = 5f;
+    public float minDistance = 1f;
     public int coinValue;
 
     protected override void OnCollect()
     {
         base.OnCollect();
-        ItemManager.Instance.AddCoins(coinValue);
+        myCollider.enabled = false;
+        collect = true;
     }
 
-    public void GetCoins()
+    protected override void Collect()
     {
         OnCollect();
     }
+
+    private void Update()
+    {
+        if (collect)
+        {
+            transform.position = Vector3.Lerp(transform.position, PlayerController.Instance.transform.position, lerpTime);
+
+            if (Vector3.Distance(transform.position, PlayerController.Instance.transform.position) < minDistance)
+            {
+                HideItems();
+               // Destroy(gameObject);
+            }
+        }
+    }
+
+
 }

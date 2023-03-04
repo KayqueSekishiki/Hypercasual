@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 2294749716874855822}
   - component: {fileID: 2294749716874855819}
   m_Layer: 0
-  m_Name: PFB_PowerUp_GetCoins
+  m_Name: PFB_PowerUp_Magnet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,8 +151,6 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   statusName: Magnet
   duration: 2
-  lookRadius: 25
-  distanceToPlayer: {x: 0, y: 0, z: 20}
   sizeAmount: 10
 --- !u!1 &4593989492131637002
 GameObject:

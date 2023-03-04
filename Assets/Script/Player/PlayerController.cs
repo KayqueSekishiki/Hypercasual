@@ -113,9 +113,9 @@ public class PlayerController : Singleton<PlayerController>
 
     public void PowerUpFlyEnd(float amount)
     {
-        ResetStatusName();
         var pos = target.position;
         target.position = new Vector3(target.position.x, pos.y -= amount, target.position.z);
+        ResetStatusName();
     }
 
     public void PowerUpGetCoins(string statusName, float amount)

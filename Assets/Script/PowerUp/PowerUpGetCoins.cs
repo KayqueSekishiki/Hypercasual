@@ -17,6 +17,5 @@ public class PowerUpGetCoins : PowerUpBase
     {
         base.EndPowerUp();
         PlayerController.Instance.PowerUpGetCoinsEnd();
-
     }
 }

@@ -64,6 +64,9 @@ MonoBehaviour:
   parentVFX: {fileID: 0}
   parentSFX: {fileID: 0}
   audioSource: {fileID: 0}
+  myCollider: {fileID: 280737492742059874}
+  collect: 0
+  lerpTime: 5
   coinValue: 1
 --- !u!1 &280737493176938402
 GameObject:

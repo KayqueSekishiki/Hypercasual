@@ -24,8 +24,6 @@ public class ItemCollectableBase : MonoBehaviour
         {
             audioSource.transform.SetParent(parentSFX);
         }
-
-
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -36,10 +34,15 @@ public class ItemCollectableBase : MonoBehaviour
         }
     }
 
-    protected virtual void Collect()
+      protected virtual void Collect()
+    {
+        HideItems();
+        OnCollect();
+    }
+
+    protected virtual void HideItems()
     {
         gameObject.SetActive(false);
-        OnCollect();
     }
 
     protected virtual void OnCollect()
