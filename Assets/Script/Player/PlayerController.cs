@@ -15,17 +15,20 @@ public class PlayerController : Singleton<PlayerController>
     [Header("Player")]
     public TextMeshProUGUI playerStatus;
     public float initialSpeed = 1f;
+    public GameObject defaultPlayerPrefab;
+    public SOPlayer soPlayer;
 
     public GameObject endScreen;
 
     public GameObject coinCollector;
 
+    [HideInInspector ]public bool canRun;
     //privates
-    private bool _canRun;
     private Vector3 _pos;
     private float _currentSpeed;
     private bool _invincible;
 
+   
 
     private void Start()
     {
@@ -36,7 +39,7 @@ public class PlayerController : Singleton<PlayerController>
 
     void Update()
     {
-        if (!_canRun) return;
+        if (!canRun) return;
         _pos = target.position;
         _pos.y = target.position.y;
         _pos.z = transform.position.z;
@@ -69,13 +72,14 @@ public class PlayerController : Singleton<PlayerController>
 
     private void EndGame()
     {
-        _canRun = false;
+        canRun = false;
         endScreen.SetActive(true);
     }
 
     public void StartToRun()
     {
-        _canRun = true;
+        if (soPlayer.currentPlayer == null) Instantiate(defaultPlayerPrefab, transform);
+        canRun = true;
     }
 
     #region POWERUPS

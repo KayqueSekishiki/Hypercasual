@@ -12,8 +12,14 @@ public class TouchController : MonoBehaviour
     public float jumpDuration = 1f;
     public float jumpForce = 1.5f;
 
+    public PlayerController playerController;
+
+  
+
     void Update()
     {
+        if (!playerController.canRun) return;
+
         foreach (Touch touch in Input.touches)
         {
             if (touch.phase == TouchPhase.Began)
