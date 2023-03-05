@@ -16,14 +16,12 @@ public class PowerUpBase : ItemCollectableBase
 
     protected virtual void StartPowerUp()
     {
-        Debug.Log("Start PowerUp");
-
+        Debug.Log("Start PowerUp: " + statusName);
         Invoke(nameof(EndPowerUp), duration);
     }
 
     protected virtual void EndPowerUp()
     {
-        Debug.Log("End PowerUp");
-
+        Debug.Log("End PowerUp: " + statusName);
     }
 }

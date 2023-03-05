@@ -2265,6 +2265,10 @@ MonoBehaviour:
     trigger: sprint
   - type: 3
     trigger: dead
+  - type: 4
+    trigger: staydead
+  - type: 5
+    trigger: win
 --- !u!1 &7398025562467292201
 GameObject:
   m_ObjectHideFlags: 0

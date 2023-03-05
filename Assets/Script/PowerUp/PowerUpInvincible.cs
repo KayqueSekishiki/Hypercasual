@@ -13,6 +13,6 @@ public class PowerUpInvincible : PowerUpBase
     protected override void EndPowerUp()
     {
         base.EndPowerUp();
-        PlayerController.Instance.PowerUpInvincibleEnd();
+        PlayerController.Instance.PowerUpInvincibleEnd(statusName);
     }
 }

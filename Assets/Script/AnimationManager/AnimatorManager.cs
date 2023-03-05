@@ -12,7 +12,9 @@ public class AnimatorManager : MonoBehaviour
         IDLE,
         RUN,
         SPRINT,
-        DEAD
+        DEAD,
+        STAYDEAD,
+        WIN
     }
 
     public void Play(AnimationType type)
@@ -47,6 +49,14 @@ public class AnimatorManager : MonoBehaviour
         else if (Input.GetKey(KeyCode.Alpha4))
         {
             Play(AnimationType.DEAD);
+        }
+        else if (Input.GetKey(KeyCode.Alpha5))
+        {
+            Play(AnimationType.STAYDEAD);
+        }
+        else if (Input.GetKey(KeyCode.Alpha6))
+        {
+            Play(AnimationType.WIN);
         }
     }
 }

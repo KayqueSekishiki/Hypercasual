@@ -25,6 +25,9 @@ public class PlayerController : Singleton<PlayerController>
 
     [Header("Animation")]
     public AnimatorManager animatorManager;
+    private bool _win = false;
+    private bool _lose = false;
+
 
 
     [HideInInspector] public bool canRun;
@@ -44,7 +47,7 @@ public class PlayerController : Singleton<PlayerController>
             animatorManager.Play(AnimatorManager.AnimationType.IDLE);
         }
 
-        ResetStatusName();
+        ResetStatusName("");
         _currentSpeed = initialSpeed;
     }
 
@@ -69,7 +72,8 @@ public class PlayerController : Singleton<PlayerController>
         }
         else if (collision.transform.CompareTag("Enemy") && !_invincible)
         {
-            EndGame();
+            EndGame(AnimatorManager.AnimationType.DEAD);
+            _lose = true;
         }
     }
 
@@ -77,17 +81,17 @@ public class PlayerController : Singleton<PlayerController>
     {
         if (other.transform.CompareTag("Endline"))
         {
-            EndGame();
+            EndGame(AnimatorManager.AnimationType.WIN);
+            _win = true;
         }
     }
 
 
-    private void EndGame()
+    private void EndGame(AnimatorManager.AnimationType animationType = AnimatorManager.AnimationType.IDLE)
     {
         canRun = false;
         endScreen.SetActive(true);
-        animatorManager.Play(AnimatorManager.AnimationType.IDLE);
-
+        animatorManager.Play(animationType);
     }
 
     public void StartToRun()
@@ -103,12 +107,27 @@ public class PlayerController : Singleton<PlayerController>
     {
         playerStatus.text = statusName;
         _currentSpeed += addSpeed;
+        animatorManager.Play(AnimatorManager.AnimationType.SPRINT);
     }
 
-    public void PowerUpSpeedUpEnd()
+    public void PowerUpSpeedUpEnd(string statusName)
     {
-        ResetStatusName();
+        ResetStatusName(statusName);
         _currentSpeed = initialSpeed;
+
+        if (_win)
+        {
+            animatorManager.Play(AnimatorManager.AnimationType.WIN);
+        }
+        else if (_lose)
+        {
+            animatorManager.Play(AnimatorManager.AnimationType.STAYDEAD);
+
+        }
+        else
+        {
+            animatorManager.Play(AnimatorManager.AnimationType.RUN);
+        }
     }
 
     public void PowerUpInvincible(string statusName)
@@ -117,9 +136,9 @@ public class PlayerController : Singleton<PlayerController>
         _invincible = true;
     }
 
-    public void PowerUpInvincibleEnd()
+    public void PowerUpInvincibleEnd(string statusName)
     {
-        ResetStatusName();
+        ResetStatusName(statusName);
         _invincible = false;
     }
 
@@ -130,11 +149,11 @@ public class PlayerController : Singleton<PlayerController>
         target.position = new Vector3(target.position.x, pos.y += amount, target.position.z);
     }
 
-    public void PowerUpFlyEnd(float amount)
+    public void PowerUpFlyEnd(string statusName, float amount)
     {
         var pos = target.position;
         target.position = new Vector3(target.position.x, pos.y -= amount, target.position.z);
-        ResetStatusName();
+        ResetStatusName(statusName);
     }
 
     public void PowerUpGetCoins(string statusName, float amount)
@@ -144,15 +163,22 @@ public class PlayerController : Singleton<PlayerController>
 
     }
 
-    public void PowerUpGetCoinsEnd()
+    public void PowerUpGetCoinsEnd(string statusName)
     {
-        ResetStatusName();
+        ResetStatusName(statusName);
         coinCollector.transform.localScale = Vector3.one;
     }
 
-    public void ResetStatusName()
+    public void ResetStatusName(string statusName)
     {
-        playerStatus.text = "";
+        if (playerStatus.text != statusName)
+        {
+            return;
+        }
+        else
+        {
+            playerStatus.text = "";
+        }
     }
 
 

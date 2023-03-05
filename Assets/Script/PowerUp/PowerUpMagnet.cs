@@ -16,6 +16,6 @@ public class PowerUpMagnet : PowerUpBase
     protected override void EndPowerUp()
     {
         base.EndPowerUp();
-        PlayerController.Instance.PowerUpGetCoinsEnd();
+        PlayerController.Instance.PowerUpGetCoinsEnd(statusName);
     }
 }

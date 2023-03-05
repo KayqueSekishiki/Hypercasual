@@ -17,6 +17,6 @@ public class PowerUpSpeedUp : PowerUpBase
     protected override void EndPowerUp()
     {
         base.EndPowerUp();
-        PlayerController.Instance.PowerUpSpeedUpEnd();  
+        PlayerController.Instance.PowerUpSpeedUpEnd(statusName);
     }
 }

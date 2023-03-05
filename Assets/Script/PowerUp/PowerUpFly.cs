@@ -16,6 +16,6 @@ public class PowerUpFly : PowerUpBase
     protected override void EndPowerUp()
     {
         base.EndPowerUp();
-        PlayerController.Instance.PowerUpFlyEnd(amountToHeight);
+        PlayerController.Instance.PowerUpFlyEnd(statusName, amountToHeight);
     }
 }
