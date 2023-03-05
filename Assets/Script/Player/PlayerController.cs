@@ -47,7 +47,7 @@ public class PlayerController : Singleton<PlayerController>
             animatorManager.Play(AnimatorManager.AnimationType.IDLE);
         }
 
-        ResetStatusName("");
+        playerStatus.text = "";
         _currentSpeed = initialSpeed;
     }
 
@@ -147,12 +147,14 @@ public class PlayerController : Singleton<PlayerController>
         playerStatus.text = statusName;
         var pos = target.position;
         target.position = new Vector3(target.position.x, pos.y += amount, target.position.z);
+        animatorManager.Play(AnimatorManager.AnimationType.FLYING);
     }
 
     public void PowerUpFlyEnd(string statusName, float amount)
     {
         var pos = target.position;
         target.position = new Vector3(target.position.x, pos.y -= amount, target.position.z);
+        animatorManager.Play(AnimatorManager.AnimationType.RUN);
         ResetStatusName(statusName);
     }
 

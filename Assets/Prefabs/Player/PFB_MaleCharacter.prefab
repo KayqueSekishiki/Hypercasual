@@ -2269,6 +2269,8 @@ MonoBehaviour:
     trigger: staydead
   - type: 5
     trigger: win
+  - type: 6
+    trigger: flying
 --- !u!1 &7398025562467292201
 GameObject:
   m_ObjectHideFlags: 0

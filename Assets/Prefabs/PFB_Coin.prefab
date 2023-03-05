@@ -67,7 +67,7 @@ MonoBehaviour:
   myCollider: {fileID: 280737492742059874}
   collect: 0
   lerpTime: 7
-  minDistance: 1
+  minDistance: 1.5
   coinValue: 1
 --- !u!1 &280737493176938402
 GameObject:

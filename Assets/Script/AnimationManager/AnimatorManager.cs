@@ -14,7 +14,8 @@ public class AnimatorManager : MonoBehaviour
         SPRINT,
         DEAD,
         STAYDEAD,
-        WIN
+        WIN,
+        FLYING
     }
 
     public void Play(AnimationType type)
@@ -57,6 +58,10 @@ public class AnimatorManager : MonoBehaviour
         else if (Input.GetKey(KeyCode.Alpha6))
         {
             Play(AnimationType.WIN);
+        }
+        else if (Input.GetKey(KeyCode.Alpha7))
+        {
+            Play(AnimationType.FLYING);
         }
     }
 }

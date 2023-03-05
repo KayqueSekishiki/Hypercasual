@@ -1068,7 +1068,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 470027788}
-  lerpSpeed: 15
+  lerpSpeed: 9
   playerStatus: {fileID: 2053520881}
   initialSpeed: 10
   defaultPlayerPrefab: {fileID: 7162693784156485642, guid: d9ba885523046c649808dbfefda7c18f, type: 3}
