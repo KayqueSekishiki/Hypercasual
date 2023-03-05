@@ -22,13 +22,13 @@ public class PlayerController : Singleton<PlayerController>
 
     public GameObject coinCollector;
 
-    [HideInInspector ]public bool canRun;
+    [HideInInspector] public bool canRun;
     //privates
     private Vector3 _pos;
     private float _currentSpeed;
     private bool _invincible;
 
-   
+
 
     private void Start()
     {

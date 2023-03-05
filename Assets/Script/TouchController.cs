@@ -14,7 +14,7 @@ public class TouchController : MonoBehaviour
 
     public PlayerController playerController;
 
-  
+
 
     void Update()
     {
