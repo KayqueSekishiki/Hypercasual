@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AnimationExample : MonoBehaviour
 {
-    public Animation animation;
+    public Animation myAnimation;
 
     public AnimationClip idle;
     public AnimationClip run;
@@ -29,6 +29,6 @@ public class AnimationExample : MonoBehaviour
 
     private void PlayAnimation(AnimationClip c)
     {
-        animation.CrossFade(c.name);
+        myAnimation.CrossFade(c.name);
     }
 }

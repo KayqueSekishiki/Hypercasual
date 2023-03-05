@@ -2220,11 +2220,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7647134206250791342, guid: ef02eac6ad8215942bc45f56114802c5, type: 3}
   m_PrefabInstance: {fileID: 681958359}
   m_PrefabAsset: {fileID: 0}
---- !u!111 &947037499 stripped
-Animation:
-  m_CorrespondingSourceObject: {fileID: 947037499, guid: ef02eac6ad8215942bc45f56114802c5, type: 3}
-  m_PrefabInstance: {fileID: 681958359}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &947037500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2237,7 +2232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7b31976ec92b35478d4439bef8ab069, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animation: {fileID: 947037499}
+  myAnimation: {fileID: 0}
   idle: {fileID: 1827226128182048838, guid: dc61b3799935b594ca516837646fd5c5, type: 3}
   run: {fileID: 1827226128182048838, guid: 3b8c0a418e875b145b7c53721b87c33e, type: 3}
 --- !u!1 &955378465
@@ -5739,11 +5734,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 134450732707213700, guid: f2103afb1d2e5344ba279effefb084da, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.025034068
+      value: -0.02503407
       objectReference: {fileID: 0}
     - target: {fileID: 134450732707213700, guid: f2103afb1d2e5344ba279effefb084da, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0012542873
+      value: 0.0012542874
       objectReference: {fileID: 0}
     - target: {fileID: 4720103725629420589, guid: f2103afb1d2e5344ba279effefb084da, type: 3}
       propertyPath: m_RootOrder
@@ -5816,14 +5811,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 549257815}
     m_Modifications:
-    - target: {fileID: 2913925504318154521, guid: d9ba885523046c649808dbfefda7c18f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.025034068
-      objectReference: {fileID: 0}
-    - target: {fileID: 2913925504318154521, guid: d9ba885523046c649808dbfefda7c18f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.0012542873
-      objectReference: {fileID: 0}
     - target: {fileID: 7162693784156485642, guid: d9ba885523046c649808dbfefda7c18f, type: 3}
       propertyPath: m_Name
       value: MaleCharacterPBR
