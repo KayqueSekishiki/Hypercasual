@@ -20,7 +20,12 @@ public class PlayerController : Singleton<PlayerController>
 
     public GameObject endScreen;
 
+    [Header("Coin Setup")]
     public GameObject coinCollector;
+
+    [Header("Animation")]
+    public AnimatorManager animatorManager;
+
 
     [HideInInspector] public bool canRun;
     //privates
@@ -32,8 +37,15 @@ public class PlayerController : Singleton<PlayerController>
 
     private void Start()
     {
-        _currentSpeed = initialSpeed;
+        if (soPlayer.currentPlayer == null)
+        {
+            soPlayer.currentPlayer = Instantiate(defaultPlayerPrefab, transform);
+            animatorManager = soPlayer.currentPlayer.GetComponent<AnimatorManager>();
+            animatorManager.Play(AnimatorManager.AnimationType.IDLE);
+        }
+
         ResetStatusName();
+        _currentSpeed = initialSpeed;
     }
 
 
@@ -74,12 +86,15 @@ public class PlayerController : Singleton<PlayerController>
     {
         canRun = false;
         endScreen.SetActive(true);
+        animatorManager.Play(AnimatorManager.AnimationType.IDLE);
+
     }
 
     public void StartToRun()
     {
-        if (soPlayer.currentPlayer == null) Instantiate(defaultPlayerPrefab, transform);
         canRun = true;
+        animatorManager = soPlayer.currentPlayer.GetComponent<AnimatorManager>();
+        animatorManager.Play(AnimatorManager.AnimationType.RUN);
     }
 
     #region POWERUPS

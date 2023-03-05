@@ -9,11 +9,6 @@ public class AnimationExample : MonoBehaviour
     public AnimationClip idle;
     public AnimationClip run;
 
-    void Start()
-    {
-
-    }
-
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.A))
