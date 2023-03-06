@@ -30,10 +30,11 @@ public class PlayerController : Singleton<PlayerController>
 
 
 
-    [HideInInspector] public bool canRun;
+    [HideInInspector] public bool canRun = false;
     //privates
     private Vector3 _pos;
     private float _currentSpeed;
+    private float _baseSpeedToAnimation = 10f;
     private bool _invincible;
 
 
@@ -98,8 +99,44 @@ public class PlayerController : Singleton<PlayerController>
     {
         canRun = true;
         animatorManager = soPlayer.currentPlayer.GetComponent<AnimatorManager>();
-        animatorManager.Play(AnimatorManager.AnimationType.RUN);
+        animatorManager.Play(AnimatorManager.AnimationType.RUN, (_currentSpeed / _baseSpeedToAnimation));
     }
+
+    public void Attack()
+    {
+        StartCoroutine(OnAttack());
+    }
+
+    IEnumerator OnAttack()
+    {
+        animatorManager.Play(AnimatorManager.AnimationType.ATTACK);
+        yield return new WaitForSeconds(0.3f);
+
+        if (playerStatus.text == "Flying")
+        {
+            animatorManager.Play(AnimatorManager.AnimationType.FLYING);
+        }
+        else if (playerStatus.text == "SpeedUp")
+        {
+            animatorManager.Play(AnimatorManager.AnimationType.SPRINT);
+        }
+        else if (_win)
+        {
+            animatorManager.Play(AnimatorManager.AnimationType.WIN);
+        }
+        else if (_lose)
+        {
+            animatorManager.Play(AnimatorManager.AnimationType.STAYDEAD);
+
+        }
+        else
+        {
+            animatorManager.Play(AnimatorManager.AnimationType.RUN);
+        }
+
+
+    }
+
 
     #region POWERUPS
 
@@ -126,7 +163,7 @@ public class PlayerController : Singleton<PlayerController>
         }
         else
         {
-            animatorManager.Play(AnimatorManager.AnimationType.RUN);
+            animatorManager.Play(AnimatorManager.AnimationType.RUN, (_currentSpeed / _baseSpeedToAnimation));
         }
     }
 
@@ -154,7 +191,7 @@ public class PlayerController : Singleton<PlayerController>
     {
         var pos = target.position;
         target.position = new Vector3(target.position.x, pos.y -= amount, target.position.z);
-        animatorManager.Play(AnimatorManager.AnimationType.RUN);
+        animatorManager.Play(AnimatorManager.AnimationType.RUN, (_currentSpeed / _baseSpeedToAnimation));
         ResetStatusName(statusName);
     }
 

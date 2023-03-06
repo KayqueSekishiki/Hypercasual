@@ -18,8 +18,6 @@ public class TouchController : MonoBehaviour
 
     void Update()
     {
-        if (!playerController.canRun) return;
-
         foreach (Touch touch in Input.touches)
         {
             if (touch.phase == TouchPhase.Began)
@@ -51,6 +49,8 @@ public class TouchController : MonoBehaviour
 
     void CheckSwipe()
     {
+        if (!playerController.canRun) return;
+
         if (VerticalMove() > swipeSensitivity && VerticalMove() > HorizontalValMove())
         {
             if (_fingerDown.y - _fingerUp.y > 0)
@@ -99,6 +99,7 @@ public class TouchController : MonoBehaviour
 
     void OnSwipeDown()
     {
+        playerController.Attack();
         Debug.Log("Baixo!");
     }
 

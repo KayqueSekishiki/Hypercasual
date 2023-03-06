@@ -23,7 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 12947392678577950}
-  m_LocalRotation: {x: -0.025034072, y: -0.06244233, z: 0.0012542875, w: 0.9977338}
+  m_LocalRotation: {x: -0.025034077, y: -0.06244233, z: 0.0012542879, w: 0.9977338}
   m_LocalPosition: {x: -0.12562485, y: -0.012257216, z: -0.0020234145}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1746,18 +1746,28 @@ MonoBehaviour:
   animatorSetups:
   - type: 0
     trigger: idle
+    speed: 1
   - type: 1
     trigger: run
+    speed: 1
   - type: 2
     trigger: sprint
+    speed: 1
   - type: 3
     trigger: dead
+    speed: 1
   - type: 4
     trigger: staydead
+    speed: 1
   - type: 5
     trigger: win
+    speed: 1
   - type: 6
     trigger: flying
+    speed: 1
+  - type: 7
+    trigger: attack
+    speed: 1
 --- !u!1 &5654311851762573592
 GameObject:
   m_ObjectHideFlags: 0

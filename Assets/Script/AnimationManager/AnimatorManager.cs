@@ -15,13 +15,21 @@ public class AnimatorManager : MonoBehaviour
         DEAD,
         STAYDEAD,
         WIN,
-        FLYING
+        FLYING,
+        ATTACK
     }
 
-    public void Play(AnimationType type)
+    public void Play(AnimationType type, float currentSpeedFactor = 1f)
     {
 
-        animatorSetups.ForEach(i => { if (i.type == type) { animator.SetTrigger(i.trigger); } });
+        animatorSetups.ForEach(animation =>
+        {
+            if (animation.type == type)
+            {
+                animator.SetTrigger(animation.trigger);
+                animator.speed = animation.speed * currentSpeedFactor;
+            }
+        });
 
         //foreach (var animation in animatorSetups)
         //{
@@ -63,6 +71,10 @@ public class AnimatorManager : MonoBehaviour
         {
             Play(AnimationType.FLYING);
         }
+        else if (Input.GetKey(KeyCode.Alpha8))
+        {
+            Play(AnimationType.ATTACK);
+        }
     }
 }
 
@@ -71,4 +83,5 @@ public class AnimatorSetup
 {
     public AnimatorManager.AnimationType type;
     public string trigger;
+    public float speed = 1f;
 }
