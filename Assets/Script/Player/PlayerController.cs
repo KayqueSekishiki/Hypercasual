@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using Ebac.Core.Singleton;
 
@@ -27,8 +28,6 @@ public class PlayerController : Singleton<PlayerController>
     public AnimatorManager animatorManager;
     private bool _win = false;
     private bool _lose = false;
-
-
 
     [HideInInspector] public bool canRun = false;
     //privates
@@ -60,8 +59,14 @@ public class PlayerController : Singleton<PlayerController>
         _pos.y = target.position.y;
         _pos.z = transform.position.z;
 
-
-        transform.Translate(_currentSpeed * Time.deltaTime * transform.forward);
+        if (_win)
+        {
+            transform.Translate(_currentSpeed / 10 * Time.deltaTime * -transform.forward);
+        }
+        else
+        {
+            transform.Translate(_currentSpeed * Time.deltaTime * transform.forward);
+        }
         transform.position = Vector3.Lerp(transform.position, _pos, lerpSpeed * Time.deltaTime);
     }
 
@@ -82,16 +87,24 @@ public class PlayerController : Singleton<PlayerController>
     {
         if (other.transform.CompareTag("Endline"))
         {
-            EndGame(AnimatorManager.AnimationType.WIN);
+
             _win = true;
+            soPlayer.currentPlayer.transform.eulerAngles = new(transform.rotation.x, transform.rotation.y + 180, transform.rotation.z);
+            endScreen.SetActive(true);
+            endScreen.GetComponent<Animator>().SetTrigger("win");
+            Invoke(nameof(ToInvokeEndGame), 3f);
         }
     }
 
+    private void ToInvokeEndGame()
+    {
+        EndGame(AnimatorManager.AnimationType.WIN);
+    }
 
-    private void EndGame(AnimatorManager.AnimationType animationType = AnimatorManager.AnimationType.IDLE)
+
+    private void EndGame(AnimatorManager.AnimationType animationType = AnimatorManager.AnimationType.WIN)
     {
         canRun = false;
-        endScreen.SetActive(true);
         animatorManager.Play(animationType);
     }
 
