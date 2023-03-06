@@ -767,8 +767,10 @@ MonoBehaviour:
   soLevelPieceBasedSetups:
   - {fileID: 11400000, guid: bbf8152b5a4478049bd76a93beb3eba5, type: 2}
   - {fileID: 11400000, guid: 70cc1f0fe72ddab4f845bb84d2a746c4, type: 2}
+  - {fileID: 11400000, guid: f4614a9660ddfd641bd5056f622f6497, type: 2}
   timeBetweenPieces: 0.3
   _index: 0
+  _spawnedPieces: []
 --- !u!1 &596674132
 GameObject:
   m_ObjectHideFlags: 0

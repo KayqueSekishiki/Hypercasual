@@ -108,6 +108,8 @@ public class LevelManager : MonoBehaviour
         {
             Destroy(_spawnedPieces[i].gameObject);
         }
+
+        _spawnedPieces.Clear();
     }
     #endregion
 
