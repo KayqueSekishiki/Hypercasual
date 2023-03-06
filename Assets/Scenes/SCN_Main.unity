@@ -764,16 +764,9 @@ MonoBehaviour:
   levels:
   - {fileID: 456163167102480938, guid: ff9bab837a35d5d4986cbb7e7ee7e2cb, type: 3}
   - {fileID: 456163167102480938, guid: fc398a1cb2b5db749ade17a6673f4898, type: 3}
-  levelPiecesStart:
-  - {fileID: 4641120685109206311, guid: 6396996274b7a7e439d2988a02a4d399, type: 3}
-  levelPieces:
-  - {fileID: 766249450333777324, guid: daaf74c4c90797c45ae827e66b0fe5e3, type: 3}
-  - {fileID: 4641120685109206311, guid: 32c44c52db6be134483bf18a7844100d, type: 3}
-  levelPiecesEnd:
-  - {fileID: 6639805964187313928, guid: cff50fc2f369aba43ba6d7fe3da1713a, type: 3}
-  piecesStartNumber: 2
-  piecesNumber: 10
-  piecesEndNumber: 1
+  soLevelPieceBasedSetups:
+  - {fileID: 11400000, guid: bbf8152b5a4478049bd76a93beb3eba5, type: 2}
+  - {fileID: 11400000, guid: 70cc1f0fe72ddab4f845bb84d2a746c4, type: 2}
   timeBetweenPieces: 0.3
   _index: 0
 --- !u!1 &596674132
