@@ -78,8 +78,10 @@ public class PlayerController : Singleton<PlayerController>
         }
         else if (collision.transform.CompareTag("Enemy") && !_invincible)
         {
-            EndGame(AnimatorManager.AnimationType.DEAD);
             _lose = true;
+            endScreen.SetActive(true);
+            endScreen.GetComponent<Animator>().SetTrigger("lose");
+            Invoke(nameof(ToInvokeEndGameLose), 0f);
         }
     }
 
@@ -92,11 +94,16 @@ public class PlayerController : Singleton<PlayerController>
             soPlayer.currentPlayer.transform.eulerAngles = new(transform.rotation.x, transform.rotation.y + 180, transform.rotation.z);
             endScreen.SetActive(true);
             endScreen.GetComponent<Animator>().SetTrigger("win");
-            Invoke(nameof(ToInvokeEndGame), 3f);
+            Invoke(nameof(ToInvokeEndGameWin), 3f);
         }
     }
 
-    private void ToInvokeEndGame()
+     private void ToInvokeEndGameLose()
+    {
+        EndGame(AnimatorManager.AnimationType.DEAD);
+    }
+
+    private void ToInvokeEndGameWin()
     {
         EndGame(AnimatorManager.AnimationType.WIN);
     }
