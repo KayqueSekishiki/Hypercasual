@@ -1768,9 +1768,6 @@ MonoBehaviour:
   - type: 7
     trigger: attack
     speed: 1
-  - type: 8
-    trigger: jump
-    speed: 1
 --- !u!1 &5654311851762573592
 GameObject:
   m_ObjectHideFlags: 0

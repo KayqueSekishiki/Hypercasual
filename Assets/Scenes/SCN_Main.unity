@@ -577,9 +577,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swipeSensitivity: 20
-  swipeVelocity: 1
-  jump: 0
-  jumpDuration: 0.7
+  swipeVelocity: 2
+  jumpDuration: 0.3
+  jumpForce: 1.5
   playerController: {fileID: 549257817}
 --- !u!1 &549257809
 GameObject:
@@ -918,7 +918,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &593687241
 Transform:
   m_ObjectHideFlags: 0
@@ -2029,7 +2029,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 456163167102480938, guid: 67cf0e129447da84389ad095b9553cd9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 456163167102480939, guid: 67cf0e129447da84389ad095b9553cd9, type: 3}
       propertyPath: m_RootOrder
@@ -4028,7 +4028,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6937357589392668915, guid: f2103afb1d2e5344ba279effefb084da, type: 3}
       propertyPath: animatorSetups.Array.size
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6937357589392668915, guid: f2103afb1d2e5344ba279effefb084da, type: 3}
       propertyPath: animatorSetups.Array.data[8].type
@@ -4073,7 +4073,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3024600572924907183, guid: d9ba885523046c649808dbfefda7c18f, type: 3}
       propertyPath: animatorSetups.Array.size
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3024600572924907183, guid: d9ba885523046c649808dbfefda7c18f, type: 3}
       propertyPath: animatorSetups.Array.data[8].type

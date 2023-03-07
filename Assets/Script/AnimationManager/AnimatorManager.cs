@@ -16,8 +16,7 @@ public class AnimatorManager : MonoBehaviour
         STAYDEAD,
         WIN,
         FLYING,
-        ATTACK,
-        JUMP,
+        ATTACK
     }
 
     public void Play(AnimationType type, float currentSpeedFactor = 1f)
@@ -44,7 +43,6 @@ public class AnimatorManager : MonoBehaviour
 
     public void Update()
     {
-        transform.localPosition = new Vector3(0, -0.5f, 0);
         if (Input.GetKey(KeyCode.Alpha1))
         {
             Play(AnimationType.IDLE);
@@ -76,10 +74,6 @@ public class AnimatorManager : MonoBehaviour
         else if (Input.GetKey(KeyCode.Alpha8))
         {
             Play(AnimationType.ATTACK);
-        }
-        else if (Input.GetKey(KeyCode.Alpha9))
-        {
-            Play(AnimationType.JUMP);
         }
     }
 }
