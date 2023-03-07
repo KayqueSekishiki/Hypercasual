@@ -124,14 +124,19 @@ public class PlayerController : Singleton<PlayerController>
 
     public void Attack()
     {
-        StartCoroutine(OnAttack());
+        target.GetComponent<TouchController>().currentPlayerCorroutine = StartCoroutine(OnAttack());
     }
 
     IEnumerator OnAttack()
     {
         animatorManager.Play(AnimatorManager.AnimationType.ATTACK);
         yield return new WaitForSeconds(0.3f);
+        target.GetComponent<TouchController>().currentPlayerCorroutine = null;
+        WhatAnimation();
+    }
 
+    public void WhatAnimation()
+    {
         if (playerStatus.text == "Flying")
         {
             animatorManager.Play(AnimatorManager.AnimationType.FLYING);
@@ -153,8 +158,6 @@ public class PlayerController : Singleton<PlayerController>
         {
             animatorManager.Play(AnimatorManager.AnimationType.RUN);
         }
-
-
     }
 
 

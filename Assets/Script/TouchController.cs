@@ -9,11 +9,14 @@ public class TouchController : MonoBehaviour
 
     public float swipeSensitivity = 20f;
     public float swipeVelocity = 1f;
+
+    [Header("Jump Setup")]
+    public bool jump = false;
     public float jumpDuration = 1f;
-    public float jumpForce = 1.5f;
+    public Coroutine currentPlayerCorroutine;
+
 
     public PlayerController playerController;
-
 
 
     void Update()
@@ -92,13 +95,14 @@ public class TouchController : MonoBehaviour
     //RETORNOS
     void OnSwipeUp()
     {
-        if (transform.position.y == -0.5) return;
-        StartCoroutine(Jump());
+        if (currentPlayerCorroutine != null) return;
+        currentPlayerCorroutine = StartCoroutine(Jump());
         Debug.Log("Cima!");
     }
 
     void OnSwipeDown()
     {
+        if (currentPlayerCorroutine != null) return;
         playerController.Attack();
         Debug.Log("Baixo!");
     }
@@ -120,8 +124,20 @@ public class TouchController : MonoBehaviour
 
     IEnumerator Jump()
     {
-        transform.position += Vector3.up * jumpForce;
+        if (!jump)
+        {
+            jump = true;
+            playerController.animatorManager.Play(AnimatorManager.AnimationType.JUMP);
+        }
+
         yield return new WaitForSeconds(jumpDuration);
-        transform.position += Vector3.down * jumpForce;
+
+        jump = false;
+        currentPlayerCorroutine = null;
+        // playerController.GetComponentInChildren<AnimatorManager>().transform.localPosition = new Vector3(0, -0.5f, 0);
+        playerController.WhatAnimation();
     }
 }
+
+
+
