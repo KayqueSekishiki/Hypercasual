@@ -5,6 +5,9 @@ using UnityEngine;
 [CreateAssetMenu]
 public class SOLevelPieceBasedSetup : ScriptableObject
 {
+    public ArtManager.ArtType artType;
+
+    [Header("Pieces")]
     public List<LevelPieceBase> levelPiecesStart;
     public List<LevelPieceBase> levelPieces;
     public List<LevelPieceBase> levelPiecesEnd;

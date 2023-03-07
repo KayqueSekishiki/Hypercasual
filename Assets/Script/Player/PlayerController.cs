@@ -98,7 +98,7 @@ public class PlayerController : Singleton<PlayerController>
         }
     }
 
-     private void ToInvokeEndGameLose()
+    private void ToInvokeEndGameLose()
     {
         EndGame(AnimatorManager.AnimationType.DEAD);
     }
