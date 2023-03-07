@@ -1049,9 +1049,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bbf8152b5a4478049bd76a93beb3eba5, type: 2}
   - {fileID: 11400000, guid: 70cc1f0fe72ddab4f845bb84d2a746c4, type: 2}
   - {fileID: 11400000, guid: f4614a9660ddfd641bd5056f622f6497, type: 2}
-  timeBetweenPieces: 0.3
+  timeBetweenPieces: 0
   _index: 0
   _spawnedPieces: []
+  scaleDuration: 0.2
+  scaleTimeBetweenPieces: 0.1
+  ease: 27
 --- !u!1 &596674132
 GameObject:
   m_ObjectHideFlags: 0
@@ -1785,7 +1788,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 53.54
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -1811,7 +1814,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.15212336, y: 0, z: 0, w: 0.98836154}
-  m_LocalPosition: {x: -0.01, y: 0.6199999, z: -8.5}
+  m_LocalPosition: {x: -0.01, y: -0.029999971, z: -4.553833}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2003,6 +2006,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1121426590}
   m_CullTransparentMesh: 1
+--- !u!1 &1141773413
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1141773414}
+  - component: {fileID: 1141773415}
+  m_Layer: 0
+  m_Name: CoinsAnimatorManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1141773414
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141773413}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -2, z: -50}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1955513842}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1141773415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141773413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3251f15ee8f22c343a1cb869e32b8fbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleDuration: 0.2
+  scaleTimeBetweenPieces: 0.025
+  ease: 27
+  items: []
 --- !u!1 &1179128446
 GameObject:
   m_ObjectHideFlags: 0
@@ -2117,7 +2168,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 549257815}
   m_Lens:
-    FieldOfView: 53.54
+    FieldOfView: 60
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -2142,7 +2193,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1299388788}
   m_LocalRotation: {x: 0.15212336, y: 0, z: 0, w: 0.98836154}
-  m_LocalPosition: {x: -0.01, y: 0.6199999, z: -8.5}
+  m_LocalPosition: {x: -0.01, y: -0.029999971, z: -4.553833}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3073,7 +3124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: -0.01, y: 2.62, z: -8.5}
+  m_FollowOffset: {x: -0.01, y: 1.97, z: -4.553833}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -3288,6 +3339,7 @@ Transform:
   - {fileID: 593687241}
   - {fileID: 41687647}
   - {fileID: 1839781525}
+  - {fileID: 1141773414}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3917,7 +3969,7 @@ RectTransform:
   m_GameObject: {fileID: 2119444873}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1638271467}
@@ -3989,6 +4041,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: LoadSceneHelper, Assembly-CSharp
         m_MethodName: Load
         m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 593687242}
+        m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
+        m_MethodName: CreateLevelPieces
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

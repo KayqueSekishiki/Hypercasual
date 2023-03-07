@@ -11,6 +11,11 @@ public class ItemCollectableCoin : ItemCollectableBase
     public float minDistance = 1f;
     public int coinValue;
 
+    private void Start()
+    {
+        CoinsAnimationManager.Instance.RegisterCoin(this);
+    }
+
     protected override void OnCollect()
     {
         base.OnCollect();
@@ -39,6 +44,11 @@ public class ItemCollectableCoin : ItemCollectableBase
     private void AutoDestroy()
     {
         Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        CoinsAnimationManager.Instance.UnRegisterCoin(this);
     }
 
 

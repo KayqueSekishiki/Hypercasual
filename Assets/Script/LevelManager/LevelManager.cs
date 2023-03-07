@@ -18,6 +18,12 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private List<LevelPieceBase> _spawnedPieces = new();
     private SOLevelPieceBasedSetup _currentSetup;
 
+
+    [Header("Animations")]
+    public float scaleDuration = .2f;
+    public float scaleTimeBetweenPieces = .1f;
+    public Ease ease = Ease.OutBack;
+
     private void Awake()
     {
         //SpawnNextLevel();
@@ -47,7 +53,7 @@ public class LevelManager : MonoBehaviour
     }
 
     #region
-    private void CreateLevelPieces()
+    public void CreateLevelPieces()
     {
         StartCoroutine(CreateLevelPieceCoroutine());
     }
@@ -107,6 +113,7 @@ public class LevelManager : MonoBehaviour
         }
 
         ColorManager.Instance.ChangeColorByType(_currentSetup.artType);
+        StartCoroutine(ScalePiecesByType());
     }
 
     IEnumerator ScalePiecesByType()
@@ -120,9 +127,11 @@ public class LevelManager : MonoBehaviour
 
         for (int i = 0; i < _spawnedPieces.Count; i++)
         {
-            //  _spawnedPieces[i];
+            _spawnedPieces[i].transform.DOScale(1, scaleDuration).SetEase(ease);
+            yield return new WaitForSeconds(scaleTimeBetweenPieces);
         }
 
+        CoinsAnimationManager.Instance.StartAnimations();
     }
 
 
@@ -142,6 +151,7 @@ public class LevelManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.D))
         {
             CreateLevelPieces();
+
         }
     }
 }
