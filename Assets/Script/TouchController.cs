@@ -125,6 +125,7 @@ public class TouchController : MonoBehaviour
     IEnumerator Jump()
     {
         transform.position += Vector3.up * jumpForce;
+        playerController.animatorManager.Play(AnimatorManager.AnimationType.FLYING);
 
         yield return new WaitForSeconds(jumpDuration);
 
