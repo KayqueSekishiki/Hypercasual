@@ -148,4 +148,6 @@ MonoBehaviour:
   parentVFX: {fileID: 0}
   parentSFX: {fileID: 0}
   audioSource: {fileID: 0}
+  statusName: 
   duration: 1
+  playerController: {fileID: 0}

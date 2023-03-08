@@ -151,6 +151,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   statusName: Magnet
   duration: 2
+  playerController: {fileID: 0}
   sizeAmount: 10
 --- !u!1 &4593989492131637002
 GameObject:

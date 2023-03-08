@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 using TMPro;
 using Ebac.Core.Singleton;
 
@@ -26,14 +27,20 @@ public class PlayerController : Singleton<PlayerController>
 
     [Header("Animation")]
     public AnimatorManager animatorManager;
+    public BounceHelper bounceHelper;
     private bool _win = false;
     private bool _lose = false;
+
+    [Header("Animations DGTweening")]
+    public float scaleDuration = .05f;
+    public float scaleFactor = 1f;
+    public Ease ease = Ease.Linear;
 
     [HideInInspector] public bool canRun = false;
     //privates
     private Vector3 _pos;
     private float _currentSpeed;
-    private float _baseSpeedToAnimation = 10f;
+    private float _baseSpeedToAnimation = 15f;
     private bool _invincible;
 
 
@@ -42,7 +49,10 @@ public class PlayerController : Singleton<PlayerController>
     {
         if (soPlayer.currentPlayer == null)
         {
+            defaultPlayerPrefab.transform.localScale = Vector3.zero;
             soPlayer.currentPlayer = Instantiate(defaultPlayerPrefab, transform);
+            soPlayer.currentPlayer.transform.DOScale(scaleFactor, scaleDuration).SetEase(ease);
+
             animatorManager = soPlayer.currentPlayer.GetComponent<AnimatorManager>();
             animatorManager.Play(AnimatorManager.AnimationType.IDLE);
         }
