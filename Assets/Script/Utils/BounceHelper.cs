@@ -8,7 +8,7 @@ public class BounceHelper : MonoBehaviour
 
     [Header("Animations")]
     public float scaleDuration = .05f;
-    public float scaleBounce = 1.2f;
+    public float scaleBounce = 1.1f;
     public Ease ease = Ease.Linear;
 
     private void Update()

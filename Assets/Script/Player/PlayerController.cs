@@ -204,12 +204,14 @@ public class PlayerController : Singleton<PlayerController>
     {
         playerStatus.text = statusName;
         _invincible = true;
+        animatorManager.transform.DOScale(1.5f, 0.5f).SetEase(Ease.Linear);
     }
 
     public void PowerUpInvincibleEnd(string statusName)
     {
         ResetStatusName(statusName);
         _invincible = false;
+        animatorManager.transform.DOScale(1, 0.5f).SetEase(Ease.Linear);
     }
 
     public void PowerUpFly(string statusName, float amount)

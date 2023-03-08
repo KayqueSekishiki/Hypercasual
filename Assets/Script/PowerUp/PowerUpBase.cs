@@ -13,7 +13,7 @@ public class PowerUpBase : ItemCollectableBase
     {
         base.OnCollect();
         StartPowerUp();
-        BouncePlayer();
+        playerController.bounceHelper.Bounce();
     }
 
     protected virtual void StartPowerUp()
@@ -25,10 +25,5 @@ public class PowerUpBase : ItemCollectableBase
     protected virtual void EndPowerUp()
     {
         Debug.Log("End PowerUp: " + statusName);
-    }
-
-    protected virtual void BouncePlayer()
-    {
-        playerController.bounceHelper.Bounce();
     }
 }

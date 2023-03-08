@@ -11,7 +11,6 @@ public class SelectPerson : MonoBehaviour
 
     [Header("Animations")]
     public float scaleDuration = .5f;
-    public float scaleFactor = 1f;
     public Ease ease = Ease.Linear;
 
     public void SelectPlayer()
@@ -20,7 +19,7 @@ public class SelectPerson : MonoBehaviour
 
         playerPrefab.transform.localScale = Vector3.zero;
         soPlayer.currentPlayer = Instantiate(playerPrefab, playerController.transform);
-        soPlayer.currentPlayer.transform.DOScale(scaleFactor, scaleDuration).SetEase(ease);
+        soPlayer.currentPlayer.transform.DOScale(Vector3.one, scaleDuration).SetEase(ease);
 
     }
 }
