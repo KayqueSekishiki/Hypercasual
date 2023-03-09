@@ -15,6 +15,7 @@ public class PlayerController : Singleton<PlayerController>
 
 
     [Header("Player")]
+    public Canvas playerCanvas;
     public TextMeshProUGUI playerStatus;
     public float initialSpeed = 1f;
     public GameObject defaultPlayerPrefab;
@@ -204,6 +205,7 @@ public class PlayerController : Singleton<PlayerController>
     {
         playerStatus.text = statusName;
         _invincible = true;
+        playerCanvas.transform.DOLocalMoveY(2.1f, .5f).SetEase(Ease.Linear);
         animatorManager.transform.DOScale(1.5f, 0.5f).SetEase(Ease.Linear);
     }
 
@@ -211,6 +213,7 @@ public class PlayerController : Singleton<PlayerController>
     {
         ResetStatusName(statusName);
         _invincible = false;
+        playerCanvas.transform.DOLocalMoveY(1.3f, .5f).SetEase(Ease.Linear);
         animatorManager.transform.DOScale(1, 0.5f).SetEase(Ease.Linear);
     }
 
