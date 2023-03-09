@@ -8,6 +8,7 @@ TagManager:
   - Endline
   - Coin
   - CoinCollector
+  - Ground
   layers:
   - Default
   - TransparentFX

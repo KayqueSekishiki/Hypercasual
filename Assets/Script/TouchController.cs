@@ -95,9 +95,12 @@ public class TouchController : MonoBehaviour
     //RETORNOS
     void OnSwipeUp()
     {
-        if (currentPlayerCorroutine != null || (transform.position.y != -2)) return;
-        currentPlayerCorroutine = StartCoroutine(Jump());
-        Debug.Log("Cima!");
+        if (playerController.IsGrounded())
+        {
+            if (currentPlayerCorroutine != null || (transform.position.y != -2)) return;
+            currentPlayerCorroutine = StartCoroutine(Jump());
+            Debug.Log("Cima!");
+        }
     }
 
     void OnSwipeDown()

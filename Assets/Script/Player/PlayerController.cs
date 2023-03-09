@@ -22,6 +22,9 @@ public class PlayerController : Singleton<PlayerController>
     public SOPlayer soPlayer;
 
     public GameObject endScreen;
+    [Header("Jump Raycast")]
+    public float distToGround = 1f;
+
 
     [Header("Coin Setup")]
     public GameObject coinCollector;
@@ -46,6 +49,7 @@ public class PlayerController : Singleton<PlayerController>
 
 
 
+
     private void Start()
     {
         if (soPlayer.currentPlayer == null)
@@ -65,6 +69,8 @@ public class PlayerController : Singleton<PlayerController>
 
     void Update()
     {
+        Debug.Log(IsGrounded());
+        Debug.DrawRay(transform.position, Vector3.down * distToGround, Color.blue);
         if (!canRun) return;
         _pos = target.position;
         _pos.y = target.position.y;
@@ -94,6 +100,9 @@ public class PlayerController : Singleton<PlayerController>
             endScreen.GetComponent<Animator>().SetTrigger("lose");
             Invoke(nameof(ToInvokeEndGameLose), 0f);
         }
+
+        Debug.Log(collision.gameObject.tag);
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -145,6 +154,24 @@ public class PlayerController : Singleton<PlayerController>
         target.GetComponent<TouchController>().currentPlayerCorroutine = null;
         WhatAnimation();
     }
+
+
+    public bool IsGrounded()
+    {
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, distToGround);
+
+        if (hit.collider != null && hit.transform.CompareTag("Ground"))
+        {
+            return hit.collider;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+
 
     public void WhatAnimation()
     {

@@ -837,6 +837,7 @@ MonoBehaviour:
   defaultPlayerPrefab: {fileID: 7162693784156485642, guid: d9ba885523046c649808dbfefda7c18f, type: 3}
   soPlayer: {fileID: 11400000, guid: f038de5af182ff3499d9216d87080980, type: 2}
   endScreen: {fileID: 826123712}
+  distToGround: 0.3
   coinCollector: {fileID: 1881442127}
   animatorManager: {fileID: 3024600572924907183, guid: d9ba885523046c649808dbfefda7c18f, type: 3}
   bounceHelper: {fileID: 549257818}
@@ -2342,10 +2343,6 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 549257817}
-    - target: {fileID: 3138728932876762061, guid: 67cf0e129447da84389ad095b9553cd9, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3138728932876762066, guid: 67cf0e129447da84389ad095b9553cd9, type: 3}
       propertyPath: playerController
       value: 
