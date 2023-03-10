@@ -21,6 +21,7 @@ public class ItemCollectableCoin : ItemCollectableBase
         base.OnCollect();
         myCollider.enabled = false;
         collect = true;
+        ItemManager.Instance.AddCoins(coinValue);
     }
 
     protected override void Collect()
