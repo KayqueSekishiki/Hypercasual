@@ -16,12 +16,19 @@ public class ShopLevel : MonoBehaviour
 
     public GameObject buyLevelMenu;
     public GameObject buyLevelConfirmButton;
+    [Header("ERROR MENU")]
+    public GameObject BuyErrorMenu;
+    public TextMeshProUGUI errorMessageText;
+
 
 
     private void Start()
     {
         LevelPrice();
+        UpdadeLevelsOpenned();
     }
+
+
 
     public void LevelPrice()
     {
@@ -34,6 +41,7 @@ public class ShopLevel : MonoBehaviour
     public void OpenBuyMenu(int levelIndex)
     {
         buyLevelMenu.SetActive(true);
+        BuyErrorMenu.SetActive(false);
         TextPrice(levelIndex);
         AddOnclickButton(levelIndex);
         UpdateYourCoinsText();
@@ -42,12 +50,24 @@ public class ShopLevel : MonoBehaviour
     public void BuyLevel(int levelIndex)
     {
         int currentCoins = PlayerPrefs.GetInt("_coinsKey");
-        if (currentCoins < LevelPrices[levelIndex]) return;
+        if (currentCoins < LevelPrices[levelIndex])
+        {
+            BuyErrorMenu.SetActive(true);
+            errorMessageText.text = "Insufficient Coins!";
+            return;
+        }
+        if (buttonsList[levelIndex - 1].activeInHierarchy == true)
+        {
+            BuyErrorMenu.SetActive(true);
+            errorMessageText.text = "Level " + (levelIndex - 1) + " not yet unlocked.";
+            return;
+        }
         currentCoins -= LevelPrices[levelIndex];
         buttonsList[levelIndex].SetActive(false);
         buyLevelMenu.SetActive(false);
 
         PlayerPrefs.SetInt("_coinsKey", currentCoins);
+        PlayerPrefs.SetInt("totalLevelsOpenned", 1 + levelIndex);
     }
 
     public void TextPrice(int levelIndex)
@@ -68,8 +88,13 @@ public class ShopLevel : MonoBehaviour
         button.onClick.AddListener(delegate { BuyLevel(levelIndex); });
     }
 
-    public void aa()
+    public void UpdadeLevelsOpenned()
     {
+        int levelsOpenned = PlayerPrefs.GetInt("totalLevelsOpenned");
 
+        for (int i = 0; i < levelsOpenned; i++)
+        {
+            buttonsList[i].SetActive(false);
+        }
     }
 }
