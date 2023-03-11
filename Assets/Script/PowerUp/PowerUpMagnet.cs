@@ -5,7 +5,7 @@ using UnityEngine;
 public class PowerUpMagnet : PowerUpBase
 {
     [Header("PowerUp GetCoins")]
-    public float sizeAmount = 10f;
+    public float sizeAmount = 20f;
 
     protected override void StartPowerUp()
     {

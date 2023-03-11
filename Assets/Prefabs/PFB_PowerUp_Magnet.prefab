@@ -150,9 +150,9 @@ MonoBehaviour:
   parentSFX: {fileID: 0}
   audioSource: {fileID: 0}
   statusName: Magnet
-  duration: 2
+  duration: 7
   playerController: {fileID: 0}
-  sizeAmount: 10
+  sizeAmount: 20
 --- !u!1 &4593989492131637002
 GameObject:
   m_ObjectHideFlags: 0

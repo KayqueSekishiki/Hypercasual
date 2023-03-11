@@ -64,13 +64,12 @@ public class PlayerController : Singleton<PlayerController>
 
         playerStatus.text = "";
         _currentSpeed = initialSpeed;
+        ItemManager.Instance.UpdateTotalCoins();
     }
 
 
     void Update()
     {
-        Debug.Log(IsGrounded());
-        Debug.DrawRay(transform.position, Vector3.down * distToGround, Color.blue);
         if (!canRun) return;
         _pos = target.position;
         _pos.y = target.position.y;
@@ -95,6 +94,7 @@ public class PlayerController : Singleton<PlayerController>
         }
         else if (collision.transform.CompareTag("Enemy") && !_invincible)
         {
+            transform.GetComponent<Collider>().enabled = false;
             _lose = true;
             endScreen.SetActive(true);
             endScreen.GetComponent<Animator>().SetTrigger("lose");
@@ -110,6 +110,8 @@ public class PlayerController : Singleton<PlayerController>
         if (other.transform.CompareTag("Endline"))
         {
 
+            transform.GetComponent<Collider>().enabled = false;
+            ItemManager.Instance.SaveCoinsData();
             _win = true;
             soPlayer.currentPlayer.transform.eulerAngles = new(transform.rotation.x, transform.rotation.y + 180, transform.rotation.z);
             endScreen.SetActive(true);
@@ -132,7 +134,8 @@ public class PlayerController : Singleton<PlayerController>
     private void EndGame(AnimatorManager.AnimationType animationType = AnimatorManager.AnimationType.WIN)
     {
         canRun = false;
-        animatorManager.Play(animationType);
+        animatorManager.Play(animationType);        
+        ItemManager.Instance.UpdateTotalCoins();
     }
 
     public void StartToRun()
@@ -140,6 +143,7 @@ public class PlayerController : Singleton<PlayerController>
         canRun = true;
         animatorManager = soPlayer.currentPlayer.GetComponent<AnimatorManager>();
         animatorManager.Play(AnimatorManager.AnimationType.RUN, (_currentSpeed / _baseSpeedToAnimation));
+        transform.GetComponent<Collider>().enabled = true;
     }
 
     public void Attack()
@@ -158,17 +162,35 @@ public class PlayerController : Singleton<PlayerController>
 
     public bool IsGrounded()
     {
+        Collider pCollider = GetComponent<Collider>();
+        float playerMiddleToBottomHeight = Mathf.Abs(pCollider.bounds.min.y - transform.position.y);
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, distToGround);
+        debugOrigin = transform.position;
+        debugDist = distToGround;
 
-        if (hit.collider != null && hit.transform.CompareTag("Ground"))
+        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, playerMiddleToBottomHeight + distToGround))
         {
-            return hit.collider;
+            if (hit.collider.gameObject.CompareTag("Ground"))
+            {
+                return true;
+            }
         }
-        else
-        {
-            return false;
-        }
+
+        return false;
+    }
+
+
+    private Vector3? debugOrigin = null;
+    private float? debugDist;
+
+    private void OnDrawGizmos()
+    {
+        if (debugOrigin == null) return;
+
+        Gizmos.color = Color.cyan;
+
+        Gizmos.DrawLine(debugOrigin.Value, debugOrigin.Value + Vector3.down * (debugDist.Value));
+
     }
 
 

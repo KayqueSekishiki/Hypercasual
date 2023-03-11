@@ -67,7 +67,7 @@ MonoBehaviour:
   parentSFX: {fileID: 0}
   audioSource: {fileID: 0}
   statusName: Flying
-  duration: 5
+  duration: 4
   playerController: {fileID: 0}
   amountToHeight: 1.5
 --- !u!1 &2958296525306037126
