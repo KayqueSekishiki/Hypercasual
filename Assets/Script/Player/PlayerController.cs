@@ -258,6 +258,8 @@ public class PlayerController : Singleton<PlayerController>
         _invincible = true;
         playerCanvas.transform.DOLocalMoveY(2.1f, .5f).SetEase(Ease.Linear);
         animatorManager.transform.DOScale(1.5f, 0.5f).SetEase(Ease.Linear);
+        transform.GetComponent<BoxCollider>().size = new Vector3(1, 1.5f, 1);
+
     }
 
     public void PowerUpInvincibleEnd(string statusName)
@@ -266,6 +268,7 @@ public class PlayerController : Singleton<PlayerController>
         _invincible = false;
         playerCanvas.transform.DOLocalMoveY(1.3f, .5f).SetEase(Ease.Linear);
         animatorManager.transform.DOScale(1, 0.5f).SetEase(Ease.Linear);
+        transform.GetComponent<BoxCollider>().size = Vector3.one;
     }
 
     public void PowerUpFly(string statusName, float amount)

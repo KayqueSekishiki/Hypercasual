@@ -14,18 +14,6 @@ public class ItemCollectableBase : MonoBehaviour
     //public AudioRandomPlayAudioClips audioRandomPlayAudioClips;
 
 
-    private void Awake()
-    {
-        if (myParticleSystem != null)
-        {
-            myParticleSystem.transform.SetParent(parentVFX);
-        }
-        if (audioSource != null)
-        {
-            audioSource.transform.SetParent(parentSFX);
-        }
-    }
-
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.transform.CompareTag(compateTag))
@@ -47,7 +35,16 @@ public class ItemCollectableBase : MonoBehaviour
 
     protected virtual void OnCollect()
     {
-        if (myParticleSystem != null) myParticleSystem.Play();
-        //  if (audioSource != null) audioRandomPlayAudioClips.PlayRandom();
+        if (myParticleSystem != null)
+        {
+            myParticleSystem.transform.SetParent(null);
+            myParticleSystem.Play();
+        }
+
+        //if (audioSource != null)
+        //{
+        //    audioRandomPlayAudioClips.transform.SetParent(null);
+        //    audioRandomPlayAudioClips.PlayRandom();
+        //}
     }
 }
