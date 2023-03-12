@@ -1471,6 +1471,7 @@ MonoBehaviour:
   coinCollector: {fileID: 1881442127}
   animatorManager: {fileID: 3024600572924907183, guid: d9ba885523046c649808dbfefda7c18f, type: 3}
   bounceHelper: {fileID: 549257818}
+  trailRenderer: {fileID: 205036922}
   vfxDeath: {fileID: 1008294599}
   scaleDuration: 0.5
   scaleFactor: 1

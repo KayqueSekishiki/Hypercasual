@@ -36,6 +36,7 @@ public class PlayerController : Singleton<PlayerController>
     private bool _lose = false;
 
     [Header("AnimationVFX")]
+    public GameObject trailRenderer;
     public ParticleSystem vfxDeath;
 
 
@@ -234,6 +235,7 @@ public class PlayerController : Singleton<PlayerController>
     {
         playerStatus.text = statusName;
         _currentSpeed += addSpeed;
+        trailRenderer.SetActive(true);
         animatorManager.Play(AnimatorManager.AnimationType.SPRINT);
     }
 
@@ -241,6 +243,8 @@ public class PlayerController : Singleton<PlayerController>
     {
         ResetStatusName(statusName);
         _currentSpeed = initialSpeed;
+        trailRenderer.SetActive(false);
+
 
         if (_win)
         {
@@ -281,6 +285,8 @@ public class PlayerController : Singleton<PlayerController>
         playerStatus.text = statusName;
         var pos = target.position;
         target.position = new Vector3(target.position.x, pos.y += amount, target.position.z);
+        animatorManager.transform.DOLocalRotate(new Vector3(45, 0, 0), 0.5f).SetEase(Ease.Linear);
+
         animatorManager.Play(AnimatorManager.AnimationType.FLYING);
     }
 
@@ -288,6 +294,7 @@ public class PlayerController : Singleton<PlayerController>
     {
         var pos = target.position;
         target.position = new Vector3(target.position.x, pos.y -= amount, target.position.z);
+        animatorManager.transform.DOLocalRotate(Vector3.zero, 0.5f).SetEase(Ease.Linear);
         animatorManager.Play(AnimatorManager.AnimationType.RUN, (_currentSpeed / _baseSpeedToAnimation));
         ResetStatusName(statusName);
     }
