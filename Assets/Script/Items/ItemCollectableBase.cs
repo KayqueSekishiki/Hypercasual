@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class ItemCollectableBase : MonoBehaviour
 {
     public string compateTag = "Player";
     public ParticleSystem myParticleSystem;
-    public Transform parentVFX;
-    public Transform parentSFX;
 
     [Header("Sounds")]
     public AudioSource audioSource;
     //public AudioRandomPlayAudioClips audioRandomPlayAudioClips;
+
+
 
 
     private void OnTriggerEnter(Collider collision)
@@ -47,4 +48,5 @@ public class ItemCollectableBase : MonoBehaviour
         //    audioRandomPlayAudioClips.PlayRandom();
         //}
     }
+
 }

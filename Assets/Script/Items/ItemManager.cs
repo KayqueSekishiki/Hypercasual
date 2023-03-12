@@ -18,13 +18,6 @@ public class ItemManager : Singleton<ItemManager>
         Reset();
     }
 
-    private void Update()
-    {
-        Debug.Log("Socoins :" + coins.value);
-        Debug.Log("PlayerTotalCOins :" + _playerTotalCoins);
-        Debug.Log("PlayerPrefsCoins: " + PlayerPrefs.GetInt(_coinsKey));
-    }
-
     private void Reset()
     {
         coins.value = 0;

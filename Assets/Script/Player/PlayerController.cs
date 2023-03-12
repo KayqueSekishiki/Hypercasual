@@ -35,6 +35,10 @@ public class PlayerController : Singleton<PlayerController>
     private bool _win = false;
     private bool _lose = false;
 
+    [Header("AnimationVFX")]
+    public ParticleSystem vfxDeath;
+
+
     [Header("Animations DGTweening")]
     public float scaleDuration = .05f;
     public float scaleFactor = 1f;
@@ -96,6 +100,7 @@ public class PlayerController : Singleton<PlayerController>
         {
             transform.GetComponent<Collider>().enabled = false;
             _lose = true;
+            if (vfxDeath != null) vfxDeath.Play();
             GameManager.Instance.ChangeCamera();
             endScreen.SetActive(true);
             endScreen.GetComponent<Animator>().SetTrigger("lose");
