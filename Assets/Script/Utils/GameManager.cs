@@ -11,8 +11,12 @@ public class GameManager : Singleton<GameManager>
     public GameObject pauseMenu;
     private bool _isPaused = false;
 
+    [Header("Camera Control")]
+    public GameObject camera1;
+    public GameObject camera2;
 
-        public void PauseGame()
+
+    public void PauseGame()
     {
         _isPaused = !_isPaused;
         Time.timeScale = _isPaused ? 0 : 1;
@@ -32,5 +36,11 @@ public class GameManager : Singleton<GameManager>
     }
 
 
- 
+
+    public void ChangeCamera()
+    {
+        camera2.SetActive(!camera2.activeSelf);
+        camera1.SetActive(!camera1.activeSelf);
+    }
+
 }

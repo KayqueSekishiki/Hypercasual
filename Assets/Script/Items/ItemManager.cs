@@ -38,6 +38,7 @@ public class ItemManager : Singleton<ItemManager>
 
     public void SaveCoinsData()
     {
+        _playerTotalCoins = PlayerPrefs.GetInt(_coinsKey);
         _playerTotalCoins += coins.value;
         PlayerPrefs.SetInt(_coinsKey, _playerTotalCoins);
     }

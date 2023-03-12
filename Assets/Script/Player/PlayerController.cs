@@ -96,6 +96,7 @@ public class PlayerController : Singleton<PlayerController>
         {
             transform.GetComponent<Collider>().enabled = false;
             _lose = true;
+            GameManager.Instance.ChangeCamera();
             endScreen.SetActive(true);
             endScreen.GetComponent<Animator>().SetTrigger("lose");
             Invoke(nameof(ToInvokeEndGameLose), 0f);
@@ -113,6 +114,7 @@ public class PlayerController : Singleton<PlayerController>
             transform.GetComponent<Collider>().enabled = false;
             ItemManager.Instance.SaveCoinsData();
             _win = true;
+            GameManager.Instance.ChangeCamera();
             soPlayer.currentPlayer.transform.eulerAngles = new(transform.rotation.x, transform.rotation.y + 180, transform.rotation.z);
             endScreen.SetActive(true);
             endScreen.GetComponent<Animator>().SetTrigger("win");
@@ -134,7 +136,7 @@ public class PlayerController : Singleton<PlayerController>
     private void EndGame(AnimatorManager.AnimationType animationType = AnimatorManager.AnimationType.WIN)
     {
         canRun = false;
-        animatorManager.Play(animationType);        
+        animatorManager.Play(animationType);
         ItemManager.Instance.UpdateTotalCoins();
     }
 
