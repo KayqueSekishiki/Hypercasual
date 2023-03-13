@@ -16,6 +16,11 @@ public class Typper : MonoBehaviour
         textMesh.text = "";
     }
 
+    private void OnDisable()
+    {
+        textMesh.text = "";
+    }
+
     [NaughtyAttributes.Button]
     public void StartType()
     {

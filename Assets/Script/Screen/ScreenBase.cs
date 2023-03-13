@@ -12,7 +12,6 @@ namespace Screens
         Main,
         LevelSelect,
         Credits,
-        Shop
     }
 
 

@@ -50,16 +50,18 @@ public class ShopLevel : MonoBehaviour
     public void BuyLevel(int levelIndex)
     {
         int currentCoins = PlayerPrefs.GetInt("_coinsKey");
-        if (currentCoins < LevelPrices[levelIndex])
-        {
-            BuyErrorMenu.SetActive(true);
-            errorMessageText.text = "Insufficient Coins!";
-            return;
-        }
+
         if (buttonsList[levelIndex - 1].activeInHierarchy == true)
         {
             BuyErrorMenu.SetActive(true);
             errorMessageText.text = "Level " + (levelIndex - 1) + " not yet unlocked.";
+            return;
+        }
+
+        if (currentCoins < LevelPrices[levelIndex])
+        {
+            BuyErrorMenu.SetActive(true);
+            errorMessageText.text = "Insufficient Coins!";
             return;
         }
         currentCoins -= LevelPrices[levelIndex];
