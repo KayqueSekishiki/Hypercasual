@@ -10,7 +10,6 @@ public class ItemCollectableBase : MonoBehaviour
 
     [Header("Sounds")]
     public AudioSource audioSource;
-    //public AudioRandomPlayAudioClips audioRandomPlayAudioClips;
 
 
 
@@ -42,11 +41,11 @@ public class ItemCollectableBase : MonoBehaviour
             myParticleSystem.Play();
         }
 
-        //if (audioSource != null)
-        //{
-        //    audioRandomPlayAudioClips.transform.SetParent(null);
-        //    audioRandomPlayAudioClips.PlayRandom();
-        //}
+        if (audioSource != null)
+        {
+            audioSource.transform.SetParent(null);
+            audioSource.Play();
+        }
     }
 
 }
