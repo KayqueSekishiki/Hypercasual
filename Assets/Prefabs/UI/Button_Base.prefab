@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2506059174658856352}
   - component: {fileID: 2506059174658856353}
   - component: {fileID: 4048024519959497794}
+  - component: {fileID: 3812762663270247073}
   m_Layer: 5
   m_Name: Button_Base
   m_TagString: Untagged
@@ -137,6 +138,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finalScale: 1.2
   scaleDuration: 0.1
+--- !u!114 &3812762663270247073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2506059174658856355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e9505add475ac4187dad20b22883c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  audioClipList:
+  - {fileID: 8300000, guid: 6a766ca5e090be4439579be4b9fba6a6, type: 3}
+  - {fileID: 8300000, guid: 5b91c440e76021a4287d582601e506a5, type: 3}
 --- !u!1 &2506059174832900748
 GameObject:
   m_ObjectHideFlags: 0

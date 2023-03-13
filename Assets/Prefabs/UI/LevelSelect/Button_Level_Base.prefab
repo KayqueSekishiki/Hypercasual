@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 4121890915488096534}
   - component: {fileID: 4121890915488096535}
   - component: {fileID: 8971299718514100802}
+  - component: {fileID: 796409675922195100}
+  - component: {fileID: 128243975749084603}
   m_Layer: 5
   m_Name: Button_Level_Base
   m_TagString: Untagged
@@ -149,6 +151,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myParticleSystem: {fileID: 2745205988566534861}
+--- !u!114 &796409675922195100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4121890915488096533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6104ab808673124f92111151ee72782, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finalScale: 1.2
+  scaleDuration: 0.1
+--- !u!114 &128243975749084603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4121890915488096533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e9505add475ac4187dad20b22883c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  audioClipList:
+  - {fileID: 8300000, guid: 6a766ca5e090be4439579be4b9fba6a6, type: 3}
+  - {fileID: 8300000, guid: 5b91c440e76021a4287d582601e506a5, type: 3}
 --- !u!1 &4121890915565682234
 GameObject:
   m_ObjectHideFlags: 0
