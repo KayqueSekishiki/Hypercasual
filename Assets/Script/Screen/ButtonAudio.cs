@@ -11,17 +11,15 @@ public class ButtonAudio : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
     public AudioSource audioSource;
     public List<AudioClip> audioClipList;
 
-    public void OnPointerEnter(PointerEventData eventData)
+    public virtual void OnPointerEnter(PointerEventData eventData)
     {
         audioSource.clip = audioClipList[0];
         audioSource.Play();
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public virtual void OnPointerClick(PointerEventData eventData)
     {
         audioSource.clip = audioClipList[1];
         audioSource.Play();
     }
-
-
 }

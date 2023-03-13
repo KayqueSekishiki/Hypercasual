@@ -20,12 +20,19 @@ public class ShopLevel : MonoBehaviour
     public GameObject BuyErrorMenu;
     public TextMeshProUGUI errorMessageText;
 
+    [Header("Audio")]
+    public AudioSource audioSource;
+    public ButtonAudioAccept buttonAudioAccept;
+    private List<AudioClip> _audioClipList;
+
+
 
 
     private void Start()
     {
         LevelPrice();
         UpdadeLevelsOpenned();
+        _audioClipList = buttonAudioAccept.audioClipList;
     }
 
 
@@ -53,6 +60,8 @@ public class ShopLevel : MonoBehaviour
 
         if (buttonsList[levelIndex - 1].activeInHierarchy == true)
         {
+            audioSource.clip = _audioClipList[2];
+            audioSource.Play();
             BuyErrorMenu.SetActive(true);
             errorMessageText.text = "Level " + (levelIndex - 1) + " not yet unlocked.";
             return;
@@ -60,10 +69,16 @@ public class ShopLevel : MonoBehaviour
 
         if (currentCoins < LevelPrices[levelIndex])
         {
+
+            audioSource.clip = _audioClipList[2];
+            audioSource.Play();
             BuyErrorMenu.SetActive(true);
             errorMessageText.text = "Insufficient Coins!";
             return;
         }
+
+        audioSource.clip = _audioClipList[1];
+        audioSource.Play();
         currentCoins -= LevelPrices[levelIndex];
         buttonsList[levelIndex].SetActive(false);
         buyLevelMenu.SetActive(false);
