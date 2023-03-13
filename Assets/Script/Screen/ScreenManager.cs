@@ -14,10 +14,9 @@ namespace Screens
 
         private void Start()
         {
-            HideAll();
+            // HideAll();
             ShowByType(startScreen);
         }
-
 
         public void ShowByType(ScreenType type)
         {

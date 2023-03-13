@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using DG.Tweening;
 
 
-public class ButtonScaler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class ButtonScaler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     public float finalScale = 1.2f;
     public float scaleDuration = .1f;
@@ -29,5 +29,12 @@ public class ButtonScaler : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         _currentTween.Kill();
         transform.localScale = _defaultScale;
 
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        Debug.Log("click");
+        _currentTween.Kill();
+        transform.localScale = _defaultScale;
     }
 }
