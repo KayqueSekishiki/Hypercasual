@@ -12,8 +12,6 @@ public class ItemCollectableBase : MonoBehaviour
     public AudioSource audioSource;
 
 
-
-
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.transform.CompareTag(compateTag))
