@@ -18,21 +18,28 @@ public class GameManager : Singleton<GameManager>
 
     public void PauseGame()
     {
-        _isPaused = !_isPaused;
-        Time.timeScale = _isPaused ? 0 : 1;
-        pauseMenu.SetActive(_isPaused);
+        _isPaused = true;
+        Time.timeScale = 0;
+        pauseMenu.SetActive(true);
+    }
+
+    public void UnpauseGame()
+    {
+        _isPaused = false;
+        Time.timeScale = 1;
+        pauseMenu.SetActive(false);
     }
 
     public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        PauseGame();
+        UnpauseGame();
     }
 
     public void ReturnToMenu()
     {
         SceneManager.LoadScene(0);
-        PauseGame();
+        UnpauseGame();
     }
 
 

@@ -30,6 +30,14 @@ public class LevelManager : MonoBehaviour
         CreateLevelPieces();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            CreateLevelPieces();
+        }
+    }
+
     private void SpawnNextLevel()
     {
         if (_currentLevel != null)
@@ -146,11 +154,5 @@ public class LevelManager : MonoBehaviour
     }
     #endregion
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            CreateLevelPieces();
-        }
-    }  
+
 }
