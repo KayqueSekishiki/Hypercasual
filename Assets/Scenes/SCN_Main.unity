@@ -7403,6 +7403,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1927377134}
+  - component: {fileID: 1927377135}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -7427,6 +7428,29 @@ Transform:
   m_Father: {fileID: 1955513842}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1927377135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927377133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45b8a2e69192ab6479379aa25da0705e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClipList:
+  - {fileID: 8300000, guid: 67849fb1d4adc2144a4c5957d7c4818d, type: 3}
+  - {fileID: 8300000, guid: 8bb8b89ac28e3e34cb33c4511cf8674f, type: 3}
+  - {fileID: 8300000, guid: 86350611a9be918408868cb96905bd6a, type: 3}
+  - {fileID: 8300000, guid: c14964675f1173b4a8f009a6d1a77a32, type: 3}
+  - {fileID: 8300000, guid: 79861646220862f4ead2435897235f9a, type: 3}
+  - {fileID: 8300000, guid: fae8436bc36b73b498acc7a9e2f846e0, type: 3}
+  - {fileID: 8300000, guid: 43c8745cec616d24d84433e0ec942449, type: 3}
+  - {fileID: 8300000, guid: 2824e8ccc0a4a8043833afdb7b751923, type: 3}
+  - {fileID: 8300000, guid: a008f456b27c40d4282ad5e659c4f9b5, type: 3}
+  audioSource: {fileID: 169881135}
 --- !u!1 &1955513841
 GameObject:
   m_ObjectHideFlags: 0
