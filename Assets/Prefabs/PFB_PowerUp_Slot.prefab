@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerups:
-  - {fileID: 8117799727721555904, guid: eaa5698ad8f633d4cb487bbabaea3e41, type: 3}
-  - {fileID: 2294749716874855820, guid: 6f8eb0404edd0a94aa05fe39e7738c8f, type: 3}
-  - {fileID: 2217473025074250735, guid: 5db54b0f4dbbd554ab032e7b56bdb737, type: 3}
-  - {fileID: 2958296525114452156, guid: 295650b3c51c0f640b7bff960b349f34, type: 3}
   - {fileID: 8117799727721555904, guid: 38c51e9272b7e604ebe67149a5cfb3af, type: 3}
+  - {fileID: 2958296525114452156, guid: 295650b3c51c0f640b7bff960b349f34, type: 3}
+  - {fileID: 2217473025074250735, guid: 5db54b0f4dbbd554ab032e7b56bdb737, type: 3}
+  - {fileID: 2294749716874855820, guid: 6f8eb0404edd0a94aa05fe39e7738c8f, type: 3}
+  - {fileID: 8117799727721555904, guid: eaa5698ad8f633d4cb487bbabaea3e41, type: 3}

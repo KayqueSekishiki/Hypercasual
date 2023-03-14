@@ -18,7 +18,6 @@ public class ItemCollectableCoin : ItemCollectableBase
 
     protected override void OnCollect()
     {
-        base.OnCollect();
         myCollider.enabled = false;
         collect = true;
         ItemManager.Instance.AddCoins(coinValue);
@@ -33,9 +32,12 @@ public class ItemCollectableCoin : ItemCollectableBase
     {
         if (collect)
         {
+            Debug.Log(Vector3.Distance(transform.position, PlayerController.Instance.transform.position));
+
             transform.position = Vector3.Lerp(transform.position, PlayerController.Instance.transform.position, lerpTime * Time.deltaTime);
             if (Vector3.Distance(transform.position, PlayerController.Instance.transform.position) < minDistance)
             {
+                base.OnCollect();
                 HideItems();
                 Invoke(nameof(AutoDestroy), 5f);
             }

@@ -70,7 +70,7 @@ MonoBehaviour:
   audioSource: {fileID: 5427176105452866002}
   myCollider: {fileID: 280737492742059874}
   collect: 0
-  lerpTime: 7
+  lerpTime: 10
   minDistance: 1.5
   coinValue: 1
 --- !u!23 &1434421164932998497
