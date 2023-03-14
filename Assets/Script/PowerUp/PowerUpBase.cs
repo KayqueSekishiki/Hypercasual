@@ -7,13 +7,12 @@ public class PowerUpBase : ItemCollectableBase
     [Header("PowerUp")]
     public string statusName;
     public float duration;
-    public PlayerController playerController;
 
     protected override void OnCollect()
     {
         base.OnCollect();
         StartPowerUp();
-        playerController.bounceHelper.Bounce();
+        PlayerController.Instance.bounceHelper.Bounce();
     }
 
     protected virtual void StartPowerUp()

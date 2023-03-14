@@ -21,6 +21,7 @@ public class PlayerController : Singleton<PlayerController>
     public GameObject defaultPlayerPrefab;
     public SOPlayer soPlayer;
 
+    public GameObject inGameUI;
     public GameObject endScreen;
     [Header("Jump Raycast")]
     public float distToGround = 1f;
@@ -40,7 +41,9 @@ public class PlayerController : Singleton<PlayerController>
     public ParticleSystem vfxDeath;
 
     [Header("AnimationSFX")]
-    public AudioRandomPlayAudioClips playerFootstepsPlayAudioClips;
+    public AudioSource ambienceAudioSource;
+    public AudioSource playerAudioSource;
+    public List<AudioClip> audioClips;
 
 
     [Header("Animations DGTweening")]
@@ -106,8 +109,12 @@ public class PlayerController : Singleton<PlayerController>
             _lose = true;
             if (vfxDeath != null) vfxDeath.Play();
             GameManager.Instance.ChangeCamera();
+            inGameUI.SetActive(false);
             endScreen.SetActive(true);
             endScreen.GetComponent<Animator>().SetTrigger("lose");
+            ambienceAudioSource.Stop();
+            playerAudioSource.clip = audioClips[0];
+            playerAudioSource.Play();
             Invoke(nameof(ToInvokeEndGameLose), 0f);
         }
     }
@@ -122,7 +129,11 @@ public class PlayerController : Singleton<PlayerController>
             _win = true;
             GameManager.Instance.ChangeCamera();
             soPlayer.currentPlayer.transform.eulerAngles = new(transform.rotation.x, transform.rotation.y + 180, transform.rotation.z);
+            inGameUI.SetActive(false);
             endScreen.SetActive(true);
+            ambienceAudioSource.Stop();
+            playerAudioSource.clip = audioClips[1];
+            playerAudioSource.Play();
             endScreen.GetComponent<Animator>().SetTrigger("win");
             Invoke(nameof(ToInvokeEndGameWin), 3f);
         }

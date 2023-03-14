@@ -642,9 +642,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 612529405817397758, guid: 74c84a3c1b78cfa4a802ce0e6a7bbd1d, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 2aca27bcb3be20d4486e7d11109bd55b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c14964675f1173b4a8f009a6d1a77a32, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.01
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1980,6 +1980,7 @@ MonoBehaviour:
   initialSpeed: 15
   defaultPlayerPrefab: {fileID: 7162693784156485642, guid: d9ba885523046c649808dbfefda7c18f, type: 3}
   soPlayer: {fileID: 11400000, guid: f038de5af182ff3499d9216d87080980, type: 2}
+  inGameUI: {fileID: 473855099}
   endScreen: {fileID: 826123712}
   distToGround: 0.01
   coinCollector: {fileID: 1881442127}
@@ -1987,7 +1988,11 @@ MonoBehaviour:
   bounceHelper: {fileID: 549257818}
   trailRenderer: {fileID: 205036922}
   vfxDeath: {fileID: 1008294599}
-  playerFootstepsPlayAudioClips: {fileID: 0}
+  ambienceAudioSource: {fileID: 169881135}
+  playerAudioSource: {fileID: 2087320346}
+  audioClips:
+  - {fileID: 8300000, guid: ad01c36e83af7e0438296541afffb840, type: 3}
+  - {fileID: 8300000, guid: f07c4f291c928c34ab0c10c2949230c6, type: 3}
   scaleDuration: 0.5
   scaleFactor: 1
   ease: 1
@@ -8658,6 +8663,7 @@ GameObject:
   - component: {fileID: 2119444876}
   - component: {fileID: 2119444875}
   - component: {fileID: 2119444879}
+  - component: {fileID: 2119444880}
   m_Layer: 5
   m_Name: Button_NextLevel
   m_TagString: Untagged
@@ -8806,6 +8812,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finalScale: 1.2
   scaleDuration: 0.1
+--- !u!114 &2119444880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2119444873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e9505add475ac4187dad20b22883c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 2087320346}
+  audioClipList:
+  - {fileID: 8300000, guid: 6a766ca5e090be4439579be4b9fba6a6, type: 3}
+  - {fileID: 8300000, guid: 5b91c440e76021a4287d582601e506a5, type: 3}
+  - {fileID: 8300000, guid: 288106a9f89d34340950ff6ebb08fae8, type: 3}
 --- !u!1 &2122193519
 GameObject:
   m_ObjectHideFlags: 0
