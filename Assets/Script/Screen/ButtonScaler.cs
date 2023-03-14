@@ -19,13 +19,11 @@ public class ButtonScaler : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("Enter");
         _currentTween = transform.DOScale(_defaultScale * finalScale, scaleDuration);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log("Exit");
         _currentTween.Kill();
         transform.localScale = _defaultScale;
 
@@ -33,7 +31,6 @@ public class ButtonScaler : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("click");
         _currentTween.Kill();
         transform.localScale = _defaultScale;
     }

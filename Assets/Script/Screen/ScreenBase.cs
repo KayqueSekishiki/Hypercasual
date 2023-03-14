@@ -40,14 +40,12 @@ namespace Screens
         public virtual void Show()
         {
             ShowObjects();
-            Debug.Log("Show");
         }
 
         [Button]
         public virtual void Hide()
         {
             HideObjects();
-            Debug.Log("Hide");
         }
 
         private void HideObjects()

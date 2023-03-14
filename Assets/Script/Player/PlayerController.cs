@@ -39,6 +39,9 @@ public class PlayerController : Singleton<PlayerController>
     public GameObject trailRenderer;
     public ParticleSystem vfxDeath;
 
+    [Header("AnimationSFX")]
+    public AudioRandomPlayAudioClips playerFootstepsPlayAudioClips;
+
 
     [Header("Animations DGTweening")]
     public float scaleDuration = .05f;
@@ -51,8 +54,6 @@ public class PlayerController : Singleton<PlayerController>
     private float _currentSpeed;
     private float _baseSpeedToAnimation = 15f;
     private bool _invincible;
-
-
 
 
     private void Start()
@@ -91,6 +92,8 @@ public class PlayerController : Singleton<PlayerController>
         transform.position = Vector3.Lerp(transform.position, _pos, lerpSpeed * Time.deltaTime);
     }
 
+
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.CompareTag("Enemy") && _invincible)
@@ -107,9 +110,6 @@ public class PlayerController : Singleton<PlayerController>
             endScreen.GetComponent<Animator>().SetTrigger("lose");
             Invoke(nameof(ToInvokeEndGameLose), 0f);
         }
-
-        Debug.Log(collision.gameObject.tag);
-
     }
 
     private void OnTriggerEnter(Collider other)

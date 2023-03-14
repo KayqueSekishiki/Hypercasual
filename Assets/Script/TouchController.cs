@@ -99,7 +99,6 @@ public class TouchController : MonoBehaviour
         {
             if (currentPlayerCorroutine != null || (transform.position.y != -2)) return;
             currentPlayerCorroutine = StartCoroutine(Jump());
-            Debug.Log("Cima!");
         }
     }
 
@@ -107,14 +106,12 @@ public class TouchController : MonoBehaviour
     {
         if (currentPlayerCorroutine != null) return;
         playerController.Attack();
-        Debug.Log("Baixo!");
     }
 
     void OnSwipeLeft()
     {
         if (transform.position.x == -4) return;
         transform.position += Vector3.left * swipeVelocity;
-        Debug.Log("Esquerda!");
     }
 
     void OnSwipeRight()
@@ -122,7 +119,6 @@ public class TouchController : MonoBehaviour
         if (transform.position.x == 4) return;
 
         transform.position += Vector3.right * swipeVelocity;
-        Debug.Log("Direita!");
     }
 
     IEnumerator Jump()

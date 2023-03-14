@@ -38,8 +38,6 @@ public class ItemManager : Singleton<ItemManager>
 
     public void UpdateTotalCoins()
     {
-        uiTextTotalCoins.text = "Your Total Coins: " + PlayerPrefs.GetInt(_coinsKey);
-
-        Debug.Log("PlayerPrefsCoins: " + PlayerPrefs.GetInt(_coinsKey));
+        uiTextTotalCoins.text = "Your Total Coins: " + PlayerPrefs.GetInt(_coinsKey);     
     }
 }

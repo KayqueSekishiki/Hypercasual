@@ -32,8 +32,6 @@ public class ItemCollectableCoin : ItemCollectableBase
     {
         if (collect)
         {
-            Debug.Log(Vector3.Distance(transform.position, PlayerController.Instance.transform.position));
-
             transform.position = Vector3.Lerp(transform.position, PlayerController.Instance.transform.position, lerpTime * Time.deltaTime);
             if (Vector3.Distance(transform.position, PlayerController.Instance.transform.position) < minDistance)
             {
