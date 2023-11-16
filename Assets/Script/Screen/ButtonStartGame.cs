@@ -20,7 +20,8 @@ public class ButtonStartGame : MonoBehaviour
         myParticleSystem.gameObject.transform.localPosition = new Vector3(0, 0, 7);
         myParticleSystem.gameObject.transform.localScale = Vector3.one;
         myParticleSystem.Play();
-        StartCoroutine(Load(sceneIndex));
+        //   StartCoroutine(Load(sceneIndex));
+        SceneManager.LoadScene(sceneIndex);
     }
 
     IEnumerator Load(int sceneIndex)
